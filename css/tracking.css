@@ -1,0 +1,75 @@
+.bg-dark {
+    background-color: #b4fc99!important;
+    margin-bottom: 50px
+}
+.bg-green {
+    background-color: #409647!important;
+   
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+  
+/*register*/
+.card-body {
+padding-top:10px
+padding-right:10px;
+padding-left: 10px
+padding-bottom:10px;
+}
+/*ความห่างของบรรทัด*/
+.form-row>.col, .form-row>[class*=col-] {
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px
+}
+
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link {
+    color: #1b1e21;
+}
+
+#mainNav.fixed-top.navbar-dark .sidenav-toggler {
+    background-color: #2c6a2a;
+}
+
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: 0px;
+}
+
+
+
+
+
+/*แถบเมนูบนสุด แก้สี*/
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #cfeaa3;
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 0.73rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+@media (min-width: 568px){
+.navbar-brand {
+font-size : 1.25rem;
+}
+}
