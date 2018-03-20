@@ -1,4 +1,5 @@
 <?php
 echo $_SERVER['DOCUMENT_ROOT'];
 echo now();
+echo "hello";
 ?>
