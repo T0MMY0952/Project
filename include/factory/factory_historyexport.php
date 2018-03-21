@@ -5,6 +5,9 @@ function edit(id) {
 function editproduct(id) {
     var myWindow = window.open("./include/factory/factory_showproduct_edit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
+function qrcode(id) {
+    var myWindow = window.open("./include/show_QR.php?idshipment="+id"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=500");  
+}
 </script>   
     <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -81,7 +84,7 @@ function editproduct(id) {
                         }
                     }
                     ?>
-                    <td><div align="center"><a href="./include/tracking.php?idshipment=<?php echo $row['idshipment']?>">พิมพ์</a></div></td>
+                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href="">พิมพ์</a></div></td>
                 </tr>
                 <?php $n = $n+1; } ?>
              </tbody>
