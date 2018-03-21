@@ -6,7 +6,7 @@
                       WHERE idshipment = $step2") or die(mysqli_error($con));
     $getinfo2 = $findinfo2->fetch_assoc();
 ?>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="tab-pane fade" id="<?php echo "profile".$i; ?>" role="tabpanel" aria-labelledby="profile-tab">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
      <div class="form-group">
    <br>

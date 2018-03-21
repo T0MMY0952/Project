@@ -50,7 +50,7 @@
   if ($type == "factory"){
   	$const = 1;
   }elseif($type =="seller"){
-  	$const = 2;
+  	$const = 0;
   }
 ?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -59,10 +59,10 @@
   </li>
 <?php
   if ($n >= 2){
-        for ($i = 1 ; $i <=  $gettrack['count']-$const; $i++) {
+        for ($i = 2 ; $i <=  $gettrack['count']; $i++) {
 ?>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile-tap" aria-selected="false">โรงงาน</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="<?php echo "#profile".$i; ?>" role="tab" aria-controls="profile-tap" aria-selected="false">โรงงาน</a>
   </li>
 <?php
       }
@@ -96,7 +96,7 @@
 		}
 	}elseif($type == "seller"){
 		//-- factory tab for seller user
-		for ($i = 2 ; $i <=  $gettrack['count']-1; $i++) {
+		for ($i = 2 ; $i <=  $gettrack['count']; $i++) {
 			$step2 = $gettrack['t'.$i];
 			include('trackingfactory.php');
 		}
