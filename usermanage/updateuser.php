@@ -127,7 +127,7 @@
 					window.location.href = "../index.php?action=edituser";
 			  		</script>';
 				}
-				elseif ($type == "seller" || $type == "factory") {
+				elseif ($type == "seller" || $type == "selleradmin") {
 					$findid = $con->query("SELECT idseller_place FROM seller_staff WHERE iduser_account = '".$id."' ");
 					$resultid = $findid->fetch_assoc();
 					$updateuser = $con->query("UPDATE user_account SET email = '$email' , pass = '$password' WHERE iduser_account = '".$id."' ");
