@@ -1,6 +1,6 @@
  <script>
 function qrcode(id) {
-    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=seller", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=500");  
+    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=seller", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
 }
 </script> 
      <div class="container-fluid">
