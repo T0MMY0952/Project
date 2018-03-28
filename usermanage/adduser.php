@@ -29,7 +29,7 @@ if($get_id){
         <form method="post" action="./usermanage/registermember.php?type=<?php echo $type; ?>" enctype="multipart/form-data">
             <div class="form-group col-md-8">
             	<label ><a style="color:red;">*</a>อีเมลล์ </label>
-            	<input class="form-control" name="email" type="email" aria-describedby="emailHelp" placeholder="อีเมลล์">
+            	<input class="form-control" name="email" type="email" placeholder="อีเมลล์">
           	</div>
         
           	<div class="form-group col-md-6">
@@ -43,15 +43,15 @@ if($get_id){
        
             <div class="form-group col-md-8">
                 <label ><a style="color:red;">*</a>ชื่อ</label>
-                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" placeholder="กรอกชื่อ">
+                <input class="form-control" name="name" type="text" placeholder="กรอกชื่อ">
             </div>
             <div class="form-group col-md-8">
                 <label><a style="color:red;">*</a>นามสกุล</label>
-                <input class="form-control" name="surname" type="text" aria-describedby="nameHelp" placeholder="กรอกนามสกุล">
+                <input class="form-control" name="surname" type="text" placeholder="กรอกนามสกุล">
             </div>
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์">
+                <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์">
             </div>
             <div class="form-group col-md-8">
              <label ><a style="color:red;">*</a>รูปภาพบุคคล</label>

@@ -22,7 +22,7 @@ $(function() {
            <form method="post" action="./include/farmer/addagri.php">
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
-                <input class="form-control" name="ap_name" type="text" aria-describedby="nameHelp" autocomplete="off"  >
+                <input class="form-control" name="ap_name" type="text" autocomplete="off"  >
                 <div class="result"></div>
             </div>
             <div class="form-group col-md-5">
@@ -31,17 +31,17 @@ $(function() {
             </div>
             <div class="form-group col-md-8">
                 <label >แปลงที่เก็บ</label>
-                <input class="form-control" name="apr_garden" type="text" aria-describedby="nameHelp" >
+                <input class="form-control" name="apr_garden" type="text"  >
             </div>
             <div class="form-group col-md-8"> 
               <div class="form-row">
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>จำนวน</label>
-                  <input class="form-control" name="apr_amount" type="text" aria-describedby="nameHelp" >
+                  <input class="form-control" name="apr_amount" type="number"  >
                 </div>
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>หน่วย</label>
-                  <input class="form-control" name="apr_unit" type="text" aria-describedby="nameHelp" >
+                  <input class="form-control" name="apr_unit" type="text"  >
                 </div>
               </div>
             </div>
@@ -49,7 +49,7 @@ $(function() {
               <div class="form-row">
                   <label ><a style="color: red;">*</a>ราคาต่อหน่วย</label>
                   <div class="col-sm-10">
-                    <input class="form-control " name="apr_price" type="text" aria-describedby="nameHelp" >
+                    <input class="form-control " name="apr_price" type="number"  >
                   </div>
                   <div class="col-sm-2">
                     <label > บาท</label>
@@ -58,7 +58,7 @@ $(function() {
             </div>
             <div class="form-group col-md-8">
                 <label ><a style="color: red;">*</a>วันที่ส่งออก</label>
-                <input class="form-control" name="apr_exportdate" type="text" aria-describedby="nameHelp" value="<?php 
+                <input class="form-control" name="apr_exportdate" type="text"  value="<?php 
                   date_default_timezone_set("Asia/Bangkok");
                   $date = new DateTime();
                   $date->modify('+543 Year');

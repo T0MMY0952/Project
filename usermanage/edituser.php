@@ -69,7 +69,7 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
 
             <div class="form-group col-md-8">
             	<label ><a style="color:red;">*</a>อีเมลล์ </label>
-            	<input class="form-control" name="email" type="email" aria-describedby="emailHelp" placeholder="อีเมลล์" value="<?php echo $result["email"];?>">
+            	<input class="form-control" name="email" type="email" placeholder="อีเมลล์" value="<?php echo $result["email"];?>">
           	</div>
         
           	<div class="form-group col-md-6">
@@ -83,17 +83,17 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
        
             <div class="form-group col-md-8">
                 <label ><a style="color:red;">*</a>ชื่อ</label>
-                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" placeholder="กรอกชื่อ" value="<?php echo $result["{$people}name"];?>">
+                <input class="form-control" name="name" type="text" placeholder="กรอกชื่อ" value="<?php echo $result["{$people}name"];?>">
             </div>
             <div class="form-group col-md-8">
                 <label><a style="color:red;">*</a>นามสกุล</label>
-                <input class="form-control" name="surname" type="text" aria-describedby="nameHelp" placeholder="กรอกนามสกุล" value="<?php echo $result["{$people}surname"];?>">
+                <input class="form-control" name="surname" type="text" placeholder="กรอกนามสกุล" value="<?php echo $result["{$people}surname"];?>">
             </div>
          
         
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $result["{$people}tel"];?>">
+                <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $result["{$people}tel"];?>">
             </div>
           	
             <div class="form-group col-md-8 search-box">
@@ -109,7 +109,7 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
       	
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์สวน/ฟาร์ม/โรงงาน/บริษัท</label>
-                <input class="form-control" name="businesstel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ" value="<?php echo $result["{$sub}tel"];?>">
+                <input class="form-control" name="businesstel" type="number" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ" value="<?php echo $result["{$sub}tel"];?>">
             </div>
 
           <div class="form-group col-md-8">

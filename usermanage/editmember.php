@@ -27,7 +27,7 @@ $getdetail = $finddetail->fetch_assoc();
         <form method="post" action="./usermanage/updatemember.php?type=<?php echo $type; ?>&id=<?php echo $id; ?>" enctype="multipart/form-data">
             <div class="form-group col-md-8">
             	<label ><a style="color:red;">*</a>อีเมลล์ </label>
-            	<input class="form-control" name="email" type="email" aria-describedby="emailHelp" placeholder="อีเมลล์" value="<?php echo $getdetail['email']; ?>">
+            	<input class="form-control" name="email" type="email" placeholder="อีเมลล์" value="<?php echo $getdetail['email']; ?>">
           	</div>
         
           	<div class="form-group col-md-6">
@@ -41,15 +41,15 @@ $getdetail = $finddetail->fetch_assoc();
        
             <div class="form-group col-md-8">
                 <label ><a style="color:red;">*</a>ชื่อ</label>
-                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" placeholder="กรอกชื่อ" value="<?php echo $getdetail[$type.'_staffname']; ?>">
+                <input class="form-control" name="name" type="text" placeholder="กรอกชื่อ" value="<?php echo $getdetail[$type.'_staffname']; ?>">
             </div>
             <div class="form-group col-md-8">
                 <label><a style="color:red;">*</a>นามสกุล</label>
-                <input class="form-control" name="surname" type="text" aria-describedby="nameHelp" placeholder="กรอกนามสกุล" value="<?php echo $getdetail[$type.'_staffsurname']; ?>">
+                <input class="form-control" name="surname" type="text" placeholder="กรอกนามสกุล" value="<?php echo $getdetail[$type.'_staffsurname']; ?>">
             </div>
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $getdetail[$type.'_stafftel']; ?>">
+                <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $getdetail[$type.'_stafftel']; ?>">
             </div>
             <div class="form-group col-md-8">
              <label ><a style="color:red;">*</a>รูปภาพบุคคล</label>
