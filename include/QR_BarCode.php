@@ -10,6 +10,7 @@ class QR_BarCode{
     private $googleChartAPI = 'http://chart.apis.google.com/chart';
     // Code data
     private $codeData;
+    private $size;
     
     /**
      * URL QR code
@@ -78,6 +79,9 @@ class QR_BarCode{
     public function content($type = null, $size = null, $content = null) {
         $this->codeData = "CNTS:TYPE:{$type};LNG:{$size};BODY:{$content};;";
     }
+    public function size($size){
+        $this->size = $size;
+    }
     
     /**
      * Generate QR code image
@@ -86,11 +90,11 @@ class QR_BarCode{
      * @param string $filename
      * @return bool
      */
-    public function qrCode($size = 200, $filename = null) {
+    public function qrCode($filename = null) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->googleChartAPI);
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, "chs={$size}x{$size}&cht=qr&chl=" . urlencode($this->codeData));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "chs={$this->size}x{$this->size}&cht=qr&chl=" . urlencode($this->codeData));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
@@ -104,13 +108,11 @@ class QR_BarCode{
                 }
                 
                 return file_put_contents($filename, $img);
-            } else {
-                header("Content-type: image/png");
-                print $img;
-                return true;
+            } else { 
+                return $img;
             }
         }
-        return false;
+        
     }
 }
 ?>
