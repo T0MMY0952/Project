@@ -16,13 +16,13 @@ $(function() {
 <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <h3 align="center">เพิ่มข้อมูลการจัดส่งผลผลิต</h3>
+        <h3 align="center">เพิ่มข้อมูลผลผลิตที่ส่งออก</h3>
       </ol>
          <div class="col-md-8">
            <form method="post" action="./include/farmer/addagri.php">
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
-                <input class="form-control" name="ap_name" type="text" autocomplete="off"  >
+                <input class="form-control" name="ap_name" type="text"  autocomplete="off"  >
                 <div class="result"></div>
             </div>
             <div class="form-group col-md-5">
@@ -37,7 +37,7 @@ $(function() {
               <div class="form-row">
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>จำนวน</label>
-                  <input class="form-control" name="apr_amount" type="number"  >
+                  <input class="form-control" name="apr_amount" type="text" >
                 </div>
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>หน่วย</label>
@@ -47,9 +47,9 @@ $(function() {
             </div>
             <div class="form-group col-md-6">
               <div class="form-row">
-                  <label ><a style="color: red;">*</a>ราคาต่อหน่วย</label>
+                  <label >ราคาต่อหน่วย</label>
                   <div class="col-sm-10">
-                    <input class="form-control " name="apr_price" type="number"  >
+                    <input class="form-control " name="apr_price" type="text" >
                   </div>
                   <div class="col-sm-2">
                     <label > บาท</label>

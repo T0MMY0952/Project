@@ -41,8 +41,8 @@ $(function() {
  $idapr = $_GET['idapr'];
  $findidfarmer = $con->query("SELECT idfarmer FROM farmer WHERE iduser_account = '".$id."' ") or die (mysqli_error($con));
  $getidfarmer = $findidfarmer->fetch_assoc();
- $sql = "SELECT s.idshipment, ap.ap_name, ap.ap_collectdate, ap.ap_garden, s.idfactory_recieve, ap.ap_exportdate,s.status,ap.ap_amount, ap.ap_unit,s.idseller_recieve
-          ,ap.ap_price
+ $sql = "SELECT s.idshipment, ap.ap_name, ap.ap_collectdate, ap.ap_garden, s.idfactory_recieve, s.exportdate,s.status,ap.ap_amount, ap.ap_unit,
+          s.idseller_recieve,ap.ap_price,ap.idagriculture_product
 		     FROM shipment as s left JOIN agriculture_product as ap on s.idagriculture_product = ap.idagriculture_product
 		     WHERE s.idfarmer_send = '".$getidfarmer['idfarmer']."' AND s.idshipment = $idapr ";
 $result = $con->query($sql) or die (mysqli_error($con));
@@ -54,7 +54,11 @@ $row = $result->fetch_assoc();
         <h3 align="center">แก้ไขการจัดส่ง&nbsp(<?php echo 'รหัสการจัดส่ง&nbsp'; echo $idshow;?>)</h3>
       </ol>
          <div class="col-md-8">
-           <form method="post" action="updateagri.php?idshow=<?php echo $idshow?>">
+           <form method="post" action="updateagri.php">
+            <div class="form-group col-md-8 ">
+                <label ><a style="color: red;">*</a>รหัสการส่ง</label>
+                <input class="form-control" name="id" type="text" readonly="readonly" value="<?php echo $row['idagriculture_product'];?>" >
+            </div>
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
                 <input class="form-control" name="ap_name" type="text" aria-describedby="nameHelp" autocomplete="off" value="<?php echo $row['ap_name'];?>" >
