@@ -52,6 +52,10 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 			include("include/farmer/farmer_addagri.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "history"){
 			include("include/farmer/farmer_history.php");
+		}elseif(isset($_GET['action']) && $_GET['action'] == "historyagrisell"){
+			include("include/farmer/farmer_historysell.php");
+		}elseif(isset($_GET['action']) && $_GET['action'] == "addagritosell"){
+			include("include/farmer/farmer_addagritosell.php");
 		}else{
 			include("include/farmer/farmer_home.php");
 		}

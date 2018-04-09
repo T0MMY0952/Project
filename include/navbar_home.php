@@ -30,18 +30,30 @@ $(document).ready(function(){
            $find = $con->query("SELECT farmername FROM farmer WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
            $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" ><i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+            <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["farmername"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
             <i class="fa fa-fw fa-home"></i><span class="nav-link-text">หน้าหลัก</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=addagri">
-            <i class="fa fa-fw fa-level-up"></i><span class="nav-link-text">เพิ่มข้อมูลการจัดส่งผลผลิต</span></a></li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=history">
-            <i class="fa fa-fw fa-list-alt"></i><span class="nav-link-text">ประวัติการจัดส่งผลผลิต</span></a></li>';
+            	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" >
+                <i class="fa fa-fw fa-level-up"></i><span class="nav-link-text">เพิ่มข้อมูลผลผลิต</span></a>
+            <ul class="sidenav-second-level collapse" id="collapseComponents1">
+              <li><a href="index.php?action=addagritosell">เพิ่มผลผลิตที่จำหน่าย</a></li>
+              <li><a href="index.php?action=addagri">เพิ่มผลผลิตที่ส่งออก</a></li>
+            </ul> 
+            </li>
+            	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+            <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" >
+                <i class="fa fa-fw fa-table"></i><span class="nav-link-text">ประวัติผลผลิต</span></a>
+            <ul class="sidenav-second-level collapse" id="collapseComponents2">
+              <li><a href="index.php?action=historyagrisell">ประวัติผลผลิตที่จำหน่าย</a></li>
+              <li><a href="index.php?action=history">ประวัติผลผลิตที่ส่งออก</a></li>
+            </ul> 
+            </li>';
                 
           }
           if ($_SESSION['type'] == "selleradmin"){
@@ -49,8 +61,8 @@ $(document).ready(function(){
           $find = $con->query("SELECT seller_staffname FROM seller_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
           $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" ><i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+            <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
            echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
@@ -64,33 +76,33 @@ $(document).ready(function(){
             </ul> 
             </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
+            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">รับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <i class="fa fa-fw fa-list-alt"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
+            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
           }
           if ($_SESSION['type'] == "seller"){
             //-- Login Seller
           $find = $con->query("SELECT seller_staffname FROM seller_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
           $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" ><i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+            <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
            echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
+            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">รับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <i class="fa fa-fw fa-list-alt"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
+            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
           }
           if ($_SESSION['type'] == "factoryadmin"){
             //-- Login Factory
             $find = $con->query("SELECT factory_staffname FROM factory_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
             $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" ><i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+            <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
@@ -115,8 +127,8 @@ $(document).ready(function(){
             $find = $con->query("SELECT factory_staffname FROM factory_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
             $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" ><i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+            <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
