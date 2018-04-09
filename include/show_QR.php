@@ -84,7 +84,7 @@ $type = $_GET['type'];
 		 <input class="form-control" type="int" name="size" value = 200 id="size"></input><br><br>
 		 <input type="hidden" name="idshipment" value="<?php echo $id; ?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
-         <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
+     <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
 		 <button style="cursor:pointer;" class="btn btn-success btn-block" href="#" id="print" onclick="javascript:printlayer('printqrcode')">Print</button>
   		</form>
   		</ul> 
@@ -101,7 +101,11 @@ $type = $_GET['type'];
 		$qr = new QR_BarCode(); 
 
 		// create text QR code 
-		$qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$id."&type=".$type); 
+    if($type == "farmer"){
+      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$id); 
+		}else{
+      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$id."&type=".$type); 
+    }
 
 		// display QR code image
 		$qrcode = $_POST['qrcode'];
