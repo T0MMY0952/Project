@@ -93,7 +93,7 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
         
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $result["{$people}tel"];?>">
+                <input class="form-control" name="tel" type="text" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $result["{$people}tel"];?>">
             </div>
           	
             <div class="form-group col-md-8 search-box">
@@ -109,7 +109,7 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
       	
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์สวน/ฟาร์ม/โรงงาน/บริษัท</label>
-                <input class="form-control" name="businesstel" type="number" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ" value="<?php echo $result["{$sub}tel"];?>">
+                <input class="form-control" name="businesstel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ" value="<?php echo $result["{$sub}tel"];?>">
             </div>
 
           <div class="form-group col-md-8">

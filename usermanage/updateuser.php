@@ -16,8 +16,7 @@
 	$type = $_SESSION['type'];
 	$id = $_SESSION['iduser_account'];
 
-	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress) || 
-		empty($businesstel) ){
+	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress)){
 		//--กรอกข้อมูลไม่ครบ
 		echo '<script type="text/javascript" >
 				alert("กรอกข้อมูลไม่ครบ");
