@@ -51,7 +51,7 @@ if($get_id){
             </div>
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์">
+                <input class="form-control" name="tel" type="text" placeholder="กรอกเบอร์โทรศัพท์">
             </div>
             <div class="form-group col-md-8">
              <label ><a style="color:red;">*</a>รูปภาพบุคคล</label>
