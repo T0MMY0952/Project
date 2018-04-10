@@ -34,7 +34,7 @@ $findfarmer = $con->query("SELECT farmname,farmaddress,farmername, farmersurname
 $getfarmer = $findfarmer->fetch_assoc();
 
 // find agriculture product 
-$findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, ap_unit, ap_exportdate FROM agriculture_product WHERE idagriculture_product = '".$row['idagriculture_product']."' "); 
+$findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, ap_unit FROM agriculture_product WHERE idagriculture_product = '".$row['idagriculture_product']."' "); 
 $getagri = $findagri->fetch_assoc();
 ?>
 <div class="container-fluid">
