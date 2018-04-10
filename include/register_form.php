@@ -61,12 +61,12 @@
         
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์</label>
-                <input class="form-control" name="tel" type="number"  placeholder="กรอกเบอร์โทรศัพท์">
+                <input class="form-control" name="tel" type="text"  placeholder="กรอกเบอร์โทรศัพท์">
             </div>
           	
             <div class="form-group col-md-8 search-box">
                 <label ><a style="color:red;">*</a>ชื่อสวน/โรงงาน/ผู้จัดจำหน่าย</label>
-                <input class="form-control" name="businessname" type="text"  placeholder="กรอกชื่อสวน/ฟาร์ม/โรงงาน/บริษัท" autocomplete="off">
+                <input class="form-control" name="businessname" type="text"  placeholder="กรอกชื่อสวน/ฟาร์ม/โรงงาน/บริษัท">
                 <div class="result"></div>
             </div>
             
@@ -77,7 +77,7 @@
       	
             <div class="form-group col-md-6">
                 <label >เบอร์โทรศัพท์สวน/ฟาร์ม/โรงงาน/บริษัท</label>
-                <input class="form-control" name="businesstel" type="number" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ">
+                <input class="form-control" name="businesstel" type="text" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ">
             </div>
 
           <div class="form-group col-md-8">
