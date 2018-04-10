@@ -48,6 +48,6 @@ if(empty($ap_name) || empty($ap_collectdate)  || empty($ap_amount) || empty($ap_
 				alert("แก้ไขข้อมูลล้มเหลว");
 				window.location.href = "javascript:history.back()";
 			  	</script>';
-	}
+		}
 }
 ?>

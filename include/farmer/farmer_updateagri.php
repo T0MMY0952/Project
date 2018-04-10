@@ -57,7 +57,7 @@ $row = $result->fetch_assoc();
            <form method="post" action="updateagri.php">
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>รหัสการส่ง</label>
-                <input class="form-control" name="id" type="text" readonly="readonly" value="<?php echo $row['idagriculture_product'];?>" >
+                <input class="form-control" name="id" type="text" readonly="readonly" value="<?php echo $row['idshipment'];?>" >
             </div>
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
