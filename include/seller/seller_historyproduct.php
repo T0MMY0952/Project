@@ -39,7 +39,7 @@ function qrcode(id) {
 
                     <?php
                       if (!is_null($row['idfactory_send'])){
-                        $findproduct = $con->query("SELECT p_name, p_amount, p_unit, p_export FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
+                        $findproduct = $con->query("SELECT p_name, p_amount, p_unit FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
                         $getproduct = $findproduct->fetch_assoc(); ?>
                         <td><div align="center"><?php echo $getproduct['p_name']; ?></div></td>
                         <td><div align="center"><?php echo $getproduct['p_amount']; echo '&nbsp'; echo $getproduct['p_unit']; ?></div></td>
@@ -48,7 +48,7 @@ function qrcode(id) {
                         $getfac = $findfac->fetch_assoc(); ?>
                         <td><div align="center"><?php echo $getfac['factoryname']; ?></div></td>
                     <?php 
-                        $date = new DateTime($getproduct['p_export']);
+                        $date = new DateTime($row['exportdate']);
                         $date->modify('+543 Year');
                     ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
@@ -69,7 +69,7 @@ function qrcode(id) {
                         $getfac = $findfac->fetch_assoc(); ?>
                         <td><div align="center"><?php echo $getfac['farmname']; ?></div></td>
                     <?php 
-                        $date = new DateTime($getproduct['ap_exportdate']);
+                        $date = new DateTime($row['exportdate']);
                         $date->modify('+543 Year');
                     ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>

@@ -87,7 +87,7 @@ $row = $result->fetch_assoc();
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่ส่งออกสินค้า</label>
                 <?php
-                  $date = new DateTime($row['p_export']);
+                  $date = new DateTime($row['exportdate']);
                   $result = $date->format('d/m/Y H:i:s');
                 ?>
                 <input class="form-control" name="exportdate" type="text" aria-describedby="nameHelp" value="<?php echo $result;?>" disabled="disabled">

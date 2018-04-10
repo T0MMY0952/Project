@@ -40,11 +40,11 @@ function recieveagri(id) {
                     <td><div align="center"><?php echo $n; ?></div></td>
                     <?php
                       if(!is_null($row['idfactory_send'])){
-                        $findproduct = $con->query("SELECT p_name, p_amount, p_unit, p_export FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
+                        $findproduct = $con->query("SELECT p_name, p_amount, p_unit FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
                         $getproduct = $findproduct->fetch_assoc(); 
                         echo '<td><div align="center">'; echo $getproduct['p_name']; echo '</div></td>';
                         echo '<td><div align="center">'; echo $getproduct['p_amount']; echo '&nbsp'; echo $getproduct['p_unit']; echo '</div></td>';
-                        $date = new DateTime($getproduct['p_export']);
+                        $date = new DateTime($row['exportdate']);
                         $date->modify('+543 Year');
                         $findfac = $con->query("SELECT factoryname FROM factory_place WHERE idfactory_place = '".$row['idfactory_send']."'");
                         $getfac = $findfac->fetch_assoc();
