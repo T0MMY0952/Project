@@ -124,7 +124,7 @@ $getprev = $findprev->fetch_assoc();
               
               <div class="col-md-6">
                 <label for="exampleInputFarm">วันที่ส่งออก</label>
-                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $getprev['exportdate'];?>">
+                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $getprev['ap_exportdate'];?>">
               </div>
             </div>
           </div>

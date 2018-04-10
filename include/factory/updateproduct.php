@@ -18,9 +18,9 @@ if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || 
 			window.location.href = "javascript:history.back()";
 		  </script>';
 }else{
-	$sql1 = "UPDATE product SET p_name = '$p_name' , p_amount = '$p_amount', p_unit = '$p_unit', p_process = '$p_process', p_mfd = '".$p_mfd."' , p_exp = '".$p_exp."' WHERE idproduct = (SELECT idproduct FROM shipment WHERE idshipment = $id) " ;
+	$sql1 = "UPDATE product SET p_name = '$p_name' , p_amount = '$p_amount', p_unit = '$p_unit', p_export = '$p_exportdate', p_process = '$p_process', p_mfd = '".$p_mfd."' , p_exp = '".$p_exp."' WHERE idproduct = (SELECT idproduct FROM shipment WHERE idshipment = $id) " ;
 	$result1 = $con->query($sql1) or die(mysqli_error($con));
-	$sql2 = "UPDATE shipment SET idseller_recieve = $idrecieve ,  exportdate = '$p_exportdate',WHERE idshipment = $id ";
+	$sql2 = "UPDATE shipment SET idseller_recieve = $idrecieve WHERE idshipment = $id ";
 	$result2 = $con->Query($sql2) or die(mysqli_error($con));
 	if($result1 && $result2){
 			echo '<script type="text/javascript" >
