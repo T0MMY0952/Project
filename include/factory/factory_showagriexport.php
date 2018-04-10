@@ -58,18 +58,13 @@ $getfarmer = $findfarmer->fetch_assoc();
 $findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, ap_unit FROM agriculture_product WHERE idagriculture_product = '".$row['idagriculture_product']."' "); 
 $getagri = $findagri->fetch_assoc();
 ?>
-
 <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <h3 align="center">แสดงรายละเอียด&nbsp(<?php echo 'รหัสการรับผลผลิต&nbsp'; echo $idshow;?>)</h3>
       </ol>
-
-         <hr width="100%">
-
-         <form method="post" action="agriexport.php?idshow=<?php echo $idshow?>">
          <div class="col-md-8">
-         
+           <form method="post" action="agriexport.php?idshow=<?php echo $idshow?>">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -118,8 +113,6 @@ $getagri = $findagri->fetch_assoc();
               </div>
             </div>
           </div>
-
-             
           <div class="form-group">
             <div class="form-row">
               
@@ -129,13 +122,6 @@ $getagri = $findagri->fetch_assoc();
               </div>
             </div>
           </div>
-     
-    </div>
-
-
-        <hr width="100%"> 
-        <div class="col-md-8">
-
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -219,23 +205,18 @@ $getagri = $findagri->fetch_assoc();
               </div>
             </div>
           </div>
-          <br>
           
             <div class="form-row">
               <div class="col-xs-6 col-sm-6 col-md-6">
-              <button style="cursor:pointer" class="btn btn-success btn-block" type="submit" mt-5>ตกลง</button>
+              <button class="btn btn-success btn-block" type="submit" mt-5>ตกลง</buttton>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
               <a class="btn btn-danger btn-block" href="javascript:window.open('','_self').close();" mt-5>ยกเลิก</a>
-              <br>
             </div>
-          </div>
 
-            
 
-               </div>
             </form>
-          </div>
-        
+         </div>
+      </div>
 </body>
     

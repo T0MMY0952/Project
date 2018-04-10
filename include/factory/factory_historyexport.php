@@ -45,7 +45,7 @@ function qrcode(id) {
                     <td><div align="center"><?php echo $n; ?></div></td>
 
                     <?php
-                      $findproduct = $con->query("SELECT p_name, p_amount, p_unit, p_export FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
+                      $findproduct = $con->query("SELECT p_name, p_amount, p_unit FROM product WHERE idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
                       $getproduct = $findproduct->fetch_assoc(); 
                     ?>
                     <td><div align="center"><?php echo $getproduct['p_name']; ?></div></td>
