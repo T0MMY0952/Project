@@ -104,7 +104,7 @@ $getfactory = $findfactory->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่ส่งออกของผลิตภัณฑ์</label>
-                <input class="form-control" name="exportdate" type="text" value = "<?php echo $getproduct['p_export'];?>" disabled="disabled" />
+                <input class="form-control" name="exportdate" type="text" value = "<?php echo $row['exportdate'];?>" disabled="disabled" />
               </div>
             </div>
           </div>

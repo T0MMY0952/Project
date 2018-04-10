@@ -69,7 +69,7 @@ function showproduct(idapr) {
                         <td><div align="center"><?php echo $getfactory['factoryname']; ?></div></td>
                         <td><div align="center"><?php echo $getfactory['p_amount']; echo '&nbsp'; echo $getfactory['p_unit']; ?></div></td>
                         <?php
-                            $date = new DateTime($getfactory['p_export']);
+                            $date = new DateTime($row['exportdate']);
                             $date->modify('+543 Year');
                         ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>

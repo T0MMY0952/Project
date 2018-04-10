@@ -31,9 +31,9 @@ if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || 
 	}
 	$findfac = $con->query("SELECT idfactory_place FROM factory_staff WHERE iduser_account = $id");
 	$getfac = $findfac->fetch_assoc();
-	$insertproduct = $con->query("INSERT INTO product (idfactory_place, p_name, p_amount, p_unit, p_process, p_mfd, p_exp, p_export) VALUES ('".$getfac['idfactory_place']."', '$p_name', '$p_amount', '$p_unit', '$p_process', '$p_mfd', '$p_exp', '".$p_exportdate."')") or die (mysqli_error($con));
+	$insertproduct = $con->query("INSERT INTO product (idfactory_place, p_name, p_amount, p_unit, p_process, p_mfd, p_exp) VALUES ('".$getfac['idfactory_place']."', '$p_name', '$p_amount', '$p_unit', '$p_process', '$p_mfd', '$p_exp')") or die (mysqli_error($con));
 	$last_id = $con->insert_id;
-	$insertshipment = $con->query("INSERT INTO shipment (idfactory_send, $idrecieve, idproduct, idshipment_prev) VALUES ('".$getfac['idfactory_place']."', $idvalue, $last_id, $idapr)") or die (mysqli_error($con));
+	$insertshipment = $con->query("INSERT INTO shipment (idfactory_send, $idrecieve, idproduct, idshipment_prev,exportdate) VALUES ('".$getfac['idfactory_place']."', $idvalue, $last_id, $idapr, '".$p_exportdate."')") or die (mysqli_error($con));
 	if($insertproduct && $insertshipment){
 			echo '<script type="text/javascript" >
 			alert("ส่งออกสินค้าเรียบร้อย");

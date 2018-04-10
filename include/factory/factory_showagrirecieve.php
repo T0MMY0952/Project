@@ -98,7 +98,7 @@ $getagri = $findagri->fetch_assoc();
               
               <div class="col-md-6">
                 <label for="exampleInputFarm">วันที่ส่งออก</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $getagri['ap_exportdate'];?>">
+                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['exportdate'];?>">
               </div>
             </div>
           </div>
