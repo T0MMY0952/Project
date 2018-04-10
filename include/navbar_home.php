@@ -76,7 +76,7 @@ $(document).ready(function(){
             </ul> 
             </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">รับสินค้า</span></a></li>
+            <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
             <i class="fa fa-fw fa-table"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
           }
@@ -92,7 +92,7 @@ $(document).ready(function(){
            echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <i class="fa fa-fw fa-table"></i><span class="nav-link-text">รับสินค้า</span></a></li>
+            <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
             <i class="fa fa-fw fa-table"></i><span class="nav-link-text">ประวัติการรับสินค้า</span></a></li>';
           }
