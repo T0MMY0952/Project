@@ -48,7 +48,7 @@ function showproduct(idapr) {
                         <td><div align="center"><?php echo $getfarmer['farmername']; echo '&nbsp'; echo $getfarmer['farmersurname']; ?></div></td>
                         <td><div align="center"><?php echo $getfarmer['ap_amount']; echo '&nbsp'; echo $getfarmer['ap_unit']; ?></div></td>
                         <?php
-                            $date = new DateTime($getfarmer['ap_exportdate']);
+                            $date = new DateTime($row['exportdate']);
                             $date->modify('+543 Year');
                         ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>

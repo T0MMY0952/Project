@@ -51,7 +51,7 @@ function qrcode(id) {
                     <td><div align="center"><?php echo $getproduct['p_name']; ?></div></td>
                     <td><div align="center"><?php echo $getproduct['p_amount']; echo '&nbsp'; echo $getproduct['p_unit']; ?></div></td>
                     <?php 
-                      $date = new DateTime($getproduct['p_export']);
+                      $date = new DateTime($row['exportdate']);
                       $date->modify('+543 Year');
                     ?>
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>

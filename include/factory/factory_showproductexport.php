@@ -50,7 +50,7 @@ $result = $con->query($sql) or die (mysqli_error($con));
 $row = $result->fetch_assoc();
 
 // find product
-$findproduct = $con->query("SELECT p_name,p_amount,p_unit,p_process,p_mfd,p_exp,p_export FROM product WHERE idproduct = '".$row['idproduct']."' ");
+$findproduct = $con->query("SELECT p_name,p_amount,p_unit,p_process,p_mfd,p_exp FROM product WHERE idproduct = '".$row['idproduct']."' ");
 $getproduct = $findproduct->fetch_assoc();
 
 // find factory
@@ -125,7 +125,7 @@ $getfactory = $findfactory->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่ส่งออกของผลิตภัณฑ์</label>
-                <input class="form-control" name="exportdate" type="text" value = "<?php echo $getproduct['p_export'];?>" disabled="disabled" />
+                <input class="form-control" name="exportdate" type="text" value = "<?php echo $row['exportdate'];?>" disabled="disabled" />
               </div>
             </div>
           </div>
