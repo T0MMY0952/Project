@@ -1,15 +1,12 @@
 <script>
-function showagri(idapr) {
-    var myWindow = window.open("./include/factory/factory_showagrirecieve.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
-}
-function showproduct(idapr) {
-    var myWindow = window.open("./include/factory/factory_showproductrecieve.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
+function showexport(idapr) {
+    var myWindow = window.open("./include/factory/factory_showexport.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
 </script>   
     <div class="container-fluid">
      <!-- Example DataTables Card-->
         <ol class="breadcrumb">
-        <h3 align="center">รับสินค้า</h3>
+        <h3 align="center">ส่งออกสินค้า</h3>
       </ol>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -19,7 +16,7 @@ function showproduct(idapr) {
                   <th><div align="center">ชื่อผลผลิต</div></th>
                   <th><div align="center">ชื่อผู้ส่ง</div></th>
                   <th><div align="center">จำนวน</div></th>
-                  <th><div align="center">วันที่ส่ง</div></th>
+                  <th><div align="center">วันที่รับ</div></th>
                   <th><div align="center">รายละเอียด</div></th>
                 </tr>
               </thead>
@@ -31,10 +28,15 @@ function showproduct(idapr) {
                 $getid_fac = $findid_fac->fetch_assoc();
                 $sql = "SELECT *
                         FROM shipment 
-                        WHERE idfactory_recieve = '".$getid_fac['idfactory_place']."' AND status != 1 ";
+                        WHERE idfactory_recieve = '".$getid_fac['idfactory_place']."' AND status = 1 
+                        ORDER BY recievedate DESC";
                 $result = $con->query($sql) or die (mysqli_error($con));
                 $n = 1;
                 while($row = $result->fetch_assoc()){
+                    //check export
+                    $checkexport = $con->query("SELECT COUNT(*) as c FROM shipment WHERE idshipment_prev = '".$row['idshipment']."' ") or die (mysqli_error($con));
+                    $getcheck = $checkexport->fetch_assoc();
+                    if($getcheck['c'] == 0){
                 ?>
                 <tr>
                     <td><div align="center"><?php echo $n; ?></div></td>
@@ -42,38 +44,39 @@ function showproduct(idapr) {
                       if( !is_null($row['idfarmer_send']) ){
                         // farmer send
                         $findfarmer = $con->query("SELECT * FROM farmer as f LEFT JOIN agriculture_product as ap ON f.idfarmer = ap.idfarmer 
-                                      WHERE f.idfarmer = '".$row['idfarmer_send']."' AND idagriculture_product = '".$row['idagriculture_product']."'") or die (mysqli_error($con));
+                                      WHERE f.idfarmer = '".$row['idfarmer_send']."' AND idagriculture_product = '".$row['idagriculture_product']."' ") or die (mysqli_error($con));
                         $getfarmer = $findfarmer->fetch_assoc();?>
                         <td><div align="center"><?php echo $getfarmer['ap_name']; ?></div></td>
                         <td><div align="center"><?php echo $getfarmer['farmername']; echo '&nbsp'; echo $getfarmer['farmersurname']; ?></div></td>
                         <td><div align="center"><?php echo $getfarmer['ap_amount']; echo '&nbsp'; echo $getfarmer['ap_unit']; ?></div></td>
                         <?php
-                            $date = new DateTime($row['exportdate']);
-                            $date->modify('+543 Year');
+                            $date2 = new DateTime($row['recievedate']);
+                            $date2->modify('+543 Year');
                         ?>
-                        <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
-                        <td><div align="center"><a onclick="showagri(<?php echo $row['idshipment']; ?>)" href="" >รับผลผลิต</a></td>
+                        <td><div align="center"><?php echo $date2->format('d/m/Y H:i:s'); ?></div></td>
+                        
                     <?php
                       }elseif( !is_null($row['idfactory_send']) ){
                         // factory send
                         $findfactory = $con->query("SELECT * FROM factory_place as fp LEFT JOIN product as p ON fp.idfactory_place = p.idfactory_place 
-                                        WHERE fp.idfactory_place = '".$row['idfactory_send']."' AND idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
+                                       WHERE fp.idfactory_place = '".$row['idfactory_send']."' AND idproduct = '".$row['idproduct']."' ") or die (mysqli_error($con));
                         $getfactory = $findfactory->fetch_assoc();?>
                         <td><div align="center"><?php echo $getfactory['p_name']; ?></div></td>
                         <td><div align="center"><?php echo $getfactory['factoryname']; ?></div></td>
                         <td><div align="center"><?php echo $getfactory['p_amount']; echo '&nbsp'; echo $getfactory['p_unit']; ?></div></td>
                         <?php
-                            $date = new DateTime($row['exportdate']);
-                            $date->modify('+543 Year');
+                            $date2 = new DateTime($row['recievedate']);
+                            $date2->modify('+543 Year');
                         ?>
-                        <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
-                        <td><div align="center"><a onclick="showproduct(<?php echo $row['idshipment']; ?>)" href="" >รับผลผลิต</a></td>
+                        <td><div align="center"><?php echo $date2->format('d/m/Y H:i:s'); ?></div></td>
+                        
                     <?php
                       }
                     ?>
-                    
-                </tr>
-                <?php $n = $n+1;} ?>
+                    	<td><div align="center"><a onclick="showexport(<?php echo $row['idshipment']; ?>)" href="" >ส่งออกผลผลิต</a></td>
+                  </tr>
+                  <?php $n = $n+1; } 
+                }?>
              </tbody>
             </table>
     <!-- Bootstrap core JavaScript-->

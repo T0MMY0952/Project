@@ -1,9 +1,6 @@
 <script>
 function edit(id) {
-    var myWindow = window.open("./include/factory/factory_showproduct.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
-}
-function editproduct(id) {
-    var myWindow = window.open("./include/factory/factory_showproduct_edit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
+    var myWindow = window.open("./include/factory/factory_showedit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
 function qrcode(id) {
     var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
@@ -36,7 +33,8 @@ function qrcode(id) {
                 $getid_fac = $findid_fac->fetch_assoc();
                 $sql = "SELECT *
                         FROM shipment 
-                        WHERE idfactory_send = '".$getid_fac['idfactory_place']."'";
+                        WHERE idfactory_send = '".$getid_fac['idfactory_place']."'
+                        ORDER BY exportdate DESC";
                 $result = $con->query($sql) or die (mysqli_error($con));
                 $n = 1;
                 while($row = $result->fetch_assoc()){
@@ -79,7 +77,7 @@ function qrcode(id) {
                                 <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
                           <?php 
                           }elseif(!is_null($row['idfactory_send'])) { ?>
-                                <td><div align="center"><a onclick="editproduct(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
                     <?php
                         }
                     }
