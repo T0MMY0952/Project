@@ -65,11 +65,11 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 		if(isset($_GET['action']) && $_GET['action'] == "edituser"){
 			include("usermanage/edituser.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "recieveagri"){
-			include("include/factory/factory_agrirecieve.php");
+			include("include/factory/factory_recieve.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "exportproduct"){
-			include("include/factory/factory_agriexport.php");
+			include("include/factory/factory_export.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "historyproduct"){
-			include("include/factory/factory_historyexport.php");
+			include("include/factory/factory_exporthistory.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "adduser"){
 			include("usermanage/adduser.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "listuser"){
@@ -85,11 +85,11 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 			$type = "factory";
 			include("usermanage/editmember.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "recieveagri"){
-			include("include/factory/factory_agrirecieve.php");
+			include("include/factory/factory_recieve.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "exportproduct"){
-			include("include/factory/factory_agriexport.php");
+			include("include/factory/factory_export.php");
 		}elseif(isset($_GET['action']) && $_GET['action'] == "historyproduct"){
-			include("include/factory/factory_historyexport.php");
+			include("include/factory/factory_exporthistory.php");
 		}else{
 			include("include/factory/factory_home.php");
 		}
