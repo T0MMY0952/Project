@@ -49,7 +49,7 @@ function qrcode(id) {
                     <td><div align="center"><?php echo $row['ap_amount']; echo '&nbsp'; echo $row['ap_unit']; ?></div></td>
                     <td><div align="center"><?php echo $row['ap_price']; echo '&nbsp บาท'; ?></div></td>
                     <td><div align="center"><a onclick="editagritosell(<?php echo $row['idagriculture_product']; ?>)" href="" >แก้ไข</a>/<a href="include/farmer/deleteagritosell.php?id=<?php echo $row['idagriculture_product']; ?>">ลบข้อมูล</a></div></td>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idagriculture_product']; ?>)" href="" >พิมพ์</div></td>
+                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idagriculture_product']; ?>)" href="" ><img src="images/print-icon.png"></div></td>
                 </tr>
                 <?php $n = $n+1; } ?>
               </tbody>
