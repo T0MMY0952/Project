@@ -29,6 +29,8 @@
 <script type="text/javascript">
 $(function() {
     $('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true,
       format: 'dd/mm/yyyy'
     });   
 });
@@ -66,7 +68,9 @@ $row = $result->fetch_assoc();
             </div>
             <div class="form-group col-md-8">
                 <label ><a style="color: red;">*</a>วันที่เก็บ</label>
-                <input class="form-control" name="apr_collectdate" type="text" id="datepicker"  value="<?php echo $row['ap_collectdate'];?>" >
+                <input class="form-control" name="apr_collectdate" type="text" id="datepicker"  value="<?php 
+                $date = date_create($row['ap_collectdate']);
+                echo date_format($date,"d/m/Y");?>" >
             </div>
             <div class="form-group col-md-8">
                 <label >แปลงที่เก็บ</label>

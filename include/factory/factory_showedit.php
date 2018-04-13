@@ -108,11 +108,15 @@ $row = $findprev->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของผลิตภัณฑ์</label>
-                <input type="text" id="datepicker" class="form-control" name="mfddate" value="<?php echo $rowcurrent['p_mfd'];?>" />
+                <input type="text" id="datepicker" class="form-control" name="mfddate" value="<?php 
+                $date = date_create($rowcurrent['p_mfd']);
+                echo date_format($date,"d/m/Y"); ?>" />
               </div>
               <div class="col-md-6">
                 <label for="exampleInputFarm"><a style="color: red">*</a>วันที่หมดอายุของผลิตภัณฑ์</label>
-                <input type="text" id="datepicker1" class="form-control" name="expdate" value="<?php echo $rowcurrent['p_exp'];?>"/>
+                <input type="text" id="datepicker1" class="form-control" name="expdate" value="<?php 
+                $date = date_create($rowcurrent['p_exp']);
+                echo date_format($date,"d/m/Y");?>"/>
               </div>
             </div>
             </div>
