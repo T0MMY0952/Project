@@ -2,6 +2,11 @@
 function edit(idapr) {
     var myWindow = window.open("./include/farmer/farmer_updateagri.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
+$(document).ready(function(){
+  $(".delete").click(function(){
+    $("#delete").modal("show");
+  });
+})
 </script>
 <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -68,7 +73,12 @@ function edit(idapr) {
                     <?php
                     if($row['status'] == 0){?>
                     	<td><div align="center"><?php echo 'รออนุมัติ'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/farmer/deleteagri.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
+                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" href="#delete<?php 
+                        $num = $n;
+                        $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
+                        echo $link;
+                        echo $num; 
+                      ?>">ลบข้อมูล</a></div></td>
                     <?php
             		    }elseif ($row['status'] == 1) {?>
             			   <td><div align="center"><?php echo 'อนุมัติแล้ว'; ?></div></td>
@@ -80,6 +90,9 @@ function edit(idapr) {
                 <?php $n = $n+1; } ?>
               </tbody>
             </table>
+    <?php
+      include('./include/deleteconfirm.php');
+    ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -92,4 +105,4 @@ function edit(idapr) {
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-          </div>
+</div>

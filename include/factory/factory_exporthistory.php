@@ -5,6 +5,11 @@ function edit(id) {
 function qrcode(id) {
     var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
 }
+$(document).ready(function(){
+  $(".delete").click(function(){
+    $("#delete").modal("show");
+  });
+})
 </script>   
     <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -74,11 +79,25 @@ function qrcode(id) {
                       }elseif($row['status'] == 0){?>
                           <td><div align="center"><?php echo 'รออนุมัติ'; ?></div></td>
                           <?php if(!is_null($row['idfarmer_send'])){ ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" 
+                                  href="#delete
+                                  <?php 
+                                      $num = $n;
+                                      $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
+                                      echo $link;
+                                      echo $num; 
+                                  ?>">ลบข้อมูล</a></div></td>
                           <?php 
                           }elseif(!is_null($row['idfactory_send'])) { ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
-                    <?php
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" 
+                                  href="#delete
+                                  <?php 
+                                      $num = $n;
+                                      $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
+                                      echo $link;
+                                      echo $num; 
+                                  ?>">ลบข้อมูล</a></div></td>
+                          <?php
                         }
                     }
                     ?>
@@ -87,6 +106,9 @@ function qrcode(id) {
                 <?php $n = $n+1; } ?>
              </tbody>
             </table>
+    <?php
+      include('./include/deleteconfirm.php');
+    ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
