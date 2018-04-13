@@ -25,6 +25,9 @@ if($get_id){
       <ol class="breadcrumb">
         <h3 align="center">เพิ่มสมาชิก</h3>
       </ol>
+      <div class="alert alert-danger">
+        <strong>ข้อควรระวัง!</strong> กรุณากรอกข้อมูลตามหัวข้อที่มี<a style="color:red;"> * </a>ให้ครบ
+      </div>
       <div class="col-md-8">
         <form method="post" action="./usermanage/registermember.php?type=<?php echo $type; ?>" enctype="multipart/form-data">
             <div class="form-group col-md-8">
