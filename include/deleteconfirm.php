@@ -7,7 +7,7 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">คลิก"ตกลง"เมื่อต้องการลบรายการที่ <?php echo $num ?></div>
+          <div class="modal-body">คลิก"ตกลง"เมื่อต้องการลบรายการ</div>
           <div class="modal-footer">
             <a class="btn btn-success" href="<?php echo $link ?>">ตกลง</a>
             <a class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close" style="color:white;">ยกเลิก</a>
