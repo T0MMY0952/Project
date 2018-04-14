@@ -65,7 +65,9 @@ $(document).ready(function(){
             <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
-           echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
+           echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
+            <i class="fa fa-fw fa-home"></i><span class="nav-link-text">หน้าหลัก</span></a></li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" >
@@ -89,7 +91,9 @@ $(document).ready(function(){
             <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
-           echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
+           echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
+            <i class="fa fa-fw fa-home"></i><span class="nav-link-text">หน้าหลัก</span></a></li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
             <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
@@ -105,7 +109,9 @@ $(document).ready(function(){
             <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
+            <i class="fa fa-fw fa-home"></i><span class="nav-link-text">หน้าหลัก</span></a></li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" >
@@ -131,7 +137,9 @@ $(document).ready(function(){
             <i class="fa fa-user fa-fw"></i><span class="nav-link-text">สวัสดีคุณ';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
+            <i class="fa fa-fw fa-home"></i><span class="nav-link-text">หน้าหลัก</span></a></li>
+                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
             <i class="fa fa-fw fa-edit"></i><span class="nav-link-text">แก้ไขข้อมูลส่วนตัว</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveagri">
             <i class="fa fa-fw fa-level-down"></i><span class="nav-link-text">รับสินค้า</span></a></li>
