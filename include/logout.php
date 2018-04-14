@@ -4,13 +4,13 @@
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">คุณต้องการออกจากระบบใช่หรือไม่</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span style="cursor:pointer;" aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">คลิก"ออกจากระบบ"เมื่อต้องการออกจากระบบ</div>
           <div class="modal-footer">
             <a class="btn btn-success" href="./usermanage/logout.php">ออกจากระบบ</a>
-            <a class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close" style="color:white;">ยกเลิก</a>
+            <a class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close" href="">ยกเลิก</a>
           </div>
         </div>
       </div>
