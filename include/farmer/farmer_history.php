@@ -72,16 +72,16 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
                     <?php
                     if($row['status'] == 0){?>
-                    	<td><div align="center"><?php echo 'รออนุมัติ'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" href="#delete<?php 
+                    	<td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Wait.png">'; ?></div></td>
+                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;/&nbsp;<a class="delete" href="#delete<?php 
                         $num = $n;
                         $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
                         echo $link;
                         echo $num; 
-                      ?>">ลบข้อมูล</a></div></td>
+                      ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <?php
             		    }elseif ($row['status'] == 1) {?>
-            			   <td><div align="center"><?php echo 'อนุมัติแล้ว'; ?></div></td>
+            			   <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
                      <td><div align="center"></div></td>
             		    <?php
             		    }

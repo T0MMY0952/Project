@@ -55,7 +55,7 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $row['ap_price']; echo '&nbsp บาท'; ?></div></td>
                     <td><div align="center">
                     <a onclick="editagritosell(<?php echo $row['idagriculture_product']; ?>)" href="" >
-                    <img src="images/edit1-icon.png"></a><b>/</b>
+                    <img src="images/EditList.png" widht="24px" height="24px"></a><b>&nbsp;/&nbsp;</b>
                     <a class="delete" href="#delete
                     <?php 
                         $num = $n;
@@ -63,8 +63,8 @@ $(document).ready(function(){
                         echo $link;
                         echo $num; 
                     ?>"> 
-                    <img width="32px" height="32px" src="images/delete1-icon.png"></a></div></td>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idagriculture_product']; ?>)" href="" ><img src="images/print-icon.png"></a></div></td>
+                    <img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
+                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idagriculture_product']; ?>)" href="" ><img src="images/Print.png" widht="34px" height="34px"></a></div></td>
                 </tr>
                 <?php $n = $n+1; } ?>
               </tbody>

@@ -97,7 +97,7 @@
           </div> 
           <div class="form-row">
           	<div class="col-xs-6 col-sm-6 col-md-6">
-      			<button class="btn btn-success btn-block" type="submit" mt-5>สมัคร</button>
+      			<button  style="cursor:pointer;" class="btn btn-success btn-block" type="submit" mt-5>สมัคร</button>
           </div>
       	  <div class="col-xs-6 col-sm-6 col-md-6">
       			<a class="btn btn-danger btn-block" href="index.php" mt-5>ยกเลิก</a>
