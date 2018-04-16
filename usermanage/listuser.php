@@ -31,7 +31,7 @@
                     <td><div align="center"><?php echo $n; ?></div></td>
                     <td><div align="center"><?php echo $getstaff[$type.'_staffname'].'&nbsp'.$getstaff[$type.'_staffsurname'];  ?></div></td>
                     <td><div align="center"><?php echo $getstaff[$type.'_stafftel'];?></div></td>
-                    <td><div align="center"><a href="./usermanage/deletemember.php?id=<?php echo $getstaff['id'.$type.'_staff']; ?>&type=<?php echo $type; ?>">ลบผู้ใช้</a></div></td>
+                    <td><div align="center"><a href="./usermanage/deletemember.php?id=<?php echo $getstaff['id'.$type.'_staff']; ?>&type=<?php echo $type; ?>"><img src="images/DeleteUser.png" widht="24px" height="24px"></a></div></td>
                 </tr>
                 <?php
                 $n = $n+1; 

@@ -81,7 +81,7 @@ function qrcode(id) {
                     <?php
                       }
                     ?>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img src="images/print-icon.png"></a></div></td>
+                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img widht="34px" height="34px" src="images/Print.png"></a></div></td>
                 </tr>
                 <?php 
                 $n = $n+1;

@@ -73,35 +73,35 @@ $(document).ready(function(){
 
                     <?php 
                       if($row['status'] == 1){?>
-                          <td><div align="center"><?php echo 'อนุมัติแล้ว'; ?></div></td>
+                          <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
                           <td><div align="center"></div></td>
                       <?php
                       }elseif($row['status'] == 0){?>
-                          <td><div align="center"><?php echo 'รออนุมัติ'; ?></div></td>
+                          <td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
                           <?php if(!is_null($row['idfarmer_send'])){ ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" 
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
                                       $num = $n;
                                       $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
                                       echo $link;
                                       echo $num; 
-                                  ?>">ลบข้อมูล</a></div></td>
+                                  ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                           <?php 
                           }elseif(!is_null($row['idfactory_send'])) { ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a class="delete" 
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
                                       $num = $n;
                                       $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
                                       echo $link;
                                       echo $num; 
-                                  ?>">ลบข้อมูล</a></div></td>
+                                  ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                           <?php
                         }
                     }
                     ?>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img src="images/print-icon.png"></a></div></td>
+                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img widht="34px" height="34px" src="images/Print.png"></a></div></td>
                 </tr>
                 <?php $n = $n+1; } ?>
              </tbody>

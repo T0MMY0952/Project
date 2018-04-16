@@ -72,8 +72,8 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
                     <?php
                     if($row['status'] == 0){?>
-                    	<td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Wait.png">'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;/&nbsp;<a class="delete" href="#delete<?php 
+                    	<td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
+                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
                         $num = $n;
                         $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
                         echo $link;
