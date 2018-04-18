@@ -42,7 +42,9 @@ $getagri = $findagri->fetch_assoc();
               </div>
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่เก็บ</label>
-                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $getagri['ap_collectdate'];?>">
+                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php 
+                $date = new DateTime($getagri['ap_collectdate']);
+                echo $date->format('d/m/Y');?>">
               </div>
             </div>
           </div>
@@ -58,10 +60,23 @@ $getagri = $findagri->fetch_assoc();
               </div>
             </div>
           </div>
-          <div class="form-group col-md-5">
-                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
-                <input type="text" class="form-control" disabled="disabled" name="apr_expdate" value="<?php echo $getagri['ap_expdate'];?>" />
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label >วันที่หมดอายุ</label>
+                <input type="text" class="form-control" disabled="disabled" name="apr_expdate" value="<?php 
+                $date = new DateTime($getagri['ap_expdate']);
+                echo $date->format('d/m/Y');?>" />
+              </div>
+              <div class="col-md-6">
+                <label for="exampleInputTel">วันที่ส่งออก</label>
+                <input class="form-control" name="exportdate" type="text" value = "<?php 
+                $date = new DateTime($row['exportdate']);
+                echo $date->format('d/m/Y H:i:s');?>" disabled="disabled" />
+              </div>
+            </div>
           </div>
+        </div>
         </div>
       </div>
       

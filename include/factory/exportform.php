@@ -4,20 +4,20 @@
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputTel"><a style="color: red">*</a>ชื่อผลิตภัณฑ์</label>
-                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" >
+                <label for="exampleInputTel"><a style="color: red">*</a>ชื่อสินค้า</label>
+                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" placeholder="ชื่อสินค้า">
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputFarm"><a style="color: red">*</a>จำนวนส่งออกผลิตภัณฑ์</label>
-                <input class="form-control" name="amount" type="text" aria-describedby="nameHelp" >
+                <label for="exampleInputFarm"><a style="color: red">*</a>จำนวนสินค้าที่ส่งออก</label>
+                <input class="form-control" name="amount" type="text" aria-describedby="nameHelp" placeholder="จำนวนสินค้าที่ส่งออก">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputFarm"><a style="color: red">*</a>หน่วย</label>
-                <input class="form-control" name="unit" type="text" aria-describedby="nameHelp" >
+                <input class="form-control" name="unit" type="text" aria-describedby="nameHelp" placeholder="เช่น ถุง ห่อ กระป๋อง เป็นต้น" >
               </div>
             </div>
           </div>
@@ -25,19 +25,19 @@
             <div class="form-row">
             <div class="col-md-6">
                 <label for="exampleInputTel"><a style="color: red">*</a>กระบวนการผลิต</label>
-                <textarea class="form-control" name="process" type="text" aria-describedby="nameHelp"> </textarea>
+                <textarea class="form-control" name="process" type="text" aria-describedby="nameHelp" > </textarea>
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของผลิตภัณฑ์</label>
-                <input type="text" id="datepicker" class="form-control" name="mfddate" />
+                <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของสินค้า</label>
+                <input type="text" id="datepicker" class="form-control" name="mfddate" placeholder="วันที่ผลิตของสินค้า" />
               </div>
               <div class="col-md-6">
-                <label for="exampleInputFarm"><a style="color: red">*</a>วันที่หมดอายุของผลิตภัณฑ์</label>
-                <input type="text" id="datepicker1" class="form-control" name="expdate" />
+                <label for="exampleInputFarm"><a style="color: red">*</a>อายุของสินค้า</label>
+                <input type="text"  class="form-control" name="expdate" placeholder="อายุของสินค้านับตั้งแต่วันที่ผลิต หน่วยเป็นวัน" />
               </div>
             </div>
           </div>
@@ -48,7 +48,6 @@
                 <input class="form-control" name="exportdate" type="text" aria-describedby="nameHelp" value="<?php 
                   date_default_timezone_set("Asia/Bangkok");
                   $date = new DateTime();
-                  $date->modify('+543 Year');
                   echo $date->format('d/m/Y H:i:s');
                 ?>" disabled="disabled">
               </div>

@@ -55,7 +55,6 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $getproduct['p_amount']; echo '&nbsp'; echo $getproduct['p_unit']; ?></div></td>
                     <?php 
                       $date = new DateTime($row['exportdate']);
-                      $date->modify('+543 Year');
                     ?>
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
 

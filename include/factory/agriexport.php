@@ -11,8 +11,8 @@ $p_unit = $_POST['unit'];
 $p_process = $_POST['process'];
 $mfd = strtr($_POST['mfddate'], '/', '-');
 $p_mfd = date('Y-m-d',strtotime($mfd)); 
-$exp = strtr($_POST['expdate'], '/', '-');
-$p_exp = date('Y-m-d',strtotime($exp));
+$exp = date_modify(date_create($p_mfd) ,'+'.$_POST['expdate'].'day' );
+$p_exp = $exp->format('Y-m-d');
 $p_exportdate = date('Y-m-d H:i:s'); 
 $idsendto = $_POST['idrecieve'];
 

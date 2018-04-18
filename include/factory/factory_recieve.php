@@ -17,6 +17,7 @@ function showrecieve(idapr) {
                   <th><div align="center">ชื่อผู้ส่ง</div></th>
                   <th><div align="center">จำนวน</div></th>
                   <th><div align="center">วันที่ส่ง</div></th>
+                  <th><div align="center">วันที่หมดอายุ</div></th>
                   <th><div align="center">รายละเอียด</div></th>
                 </tr>
               </thead>
@@ -47,9 +48,12 @@ function showrecieve(idapr) {
                         <td><div align="center"><?php echo $getfarmer['ap_amount']; echo '&nbsp'; echo $getfarmer['ap_unit']; ?></div></td>
                         <?php
                             $date = new DateTime($row['exportdate']);
-                            $date->modify('+543 Year');
                         ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
+                        <?php
+                            $date = new DateTime($getfarmer['ap_expdate']);
+                        ?>
+                        <td><div align="center"><?php echo $date->format('d/m/Y'); ?></div></td>
                     <?php
                       }elseif( !is_null($row['idfactory_send']) ){
                         // factory send
@@ -61,9 +65,12 @@ function showrecieve(idapr) {
                         <td><div align="center"><?php echo $getfactory['p_amount']; echo '&nbsp'; echo $getfactory['p_unit']; ?></div></td>
                         <?php
                             $date = new DateTime($row['exportdate']);
-                            $date->modify('+543 Year');
                         ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
+                        <?php
+                            $date = new DateTime($getfactory['p_exp']);
+                        ?>
+                        <td><div align="center"><?php echo $date->format('d/m/Y'); ?></div></td>
                         
                     <?php
                       }

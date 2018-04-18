@@ -55,7 +55,9 @@ $getfactory = $findfactory->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่ผลิตของผลิตภัณฑ์</label>
-                <input type="text"  class="form-control" name="mfddate" value = "<?php echo $getproduct['p_mfd'];?>" disabled="disabled"/>
+                <input type="text"  class="form-control" name="mfddate" value = "<?php 
+                $date = new DateTime($getproduct['p_mfd']);
+                echo $date->format('d/m/Y'); ?>" disabled="disabled"/>
               </div>
             </div>
           </div>
@@ -63,15 +65,19 @@ $getfactory = $findfactory->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputFarm">วันที่หมดอายุของผลิตภัณฑ์</label>
-                <input type="text"  class="form-control" name="expdate" value = "<?php echo $getproduct['p_exp'];?>" disabled="disabled" />
+                <input type="text"  class="form-control" name="expdate" value = "<?php 
+                $date = new DateTime($getproduct['p_exp']);
+                echo $date->format('d/m/Y');?>" disabled="disabled" />
               </div>
             </div>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputTel">วันที่ส่งออกของผลิตภัณฑ์</label>
-                <input class="form-control" name="exportdate" type="text" value = "<?php echo $row['exportdate'];?>" disabled="disabled" />
+                <label for="exampleInputTel">วันที่ส่งออก</label>
+                <input class="form-control" name="exportdate" type="text" value = "<?php 
+                $date = new DateTime($row['exportdate']);
+                echo $date->format('d/m/Y H:i:s');?>" disabled="disabled" />
               </div>
             </div>
           </div>

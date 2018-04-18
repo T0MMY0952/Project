@@ -30,16 +30,11 @@
 
 $(function() {
     $('#datepicker').datepicker({
+      changeMonth: true,
+      changeYear: true,
       format: 'dd/mm/yyyy'
     });   
 });
-
-$(function() {
-    $('#datepicker1').datepicker({
-      format: 'dd/mm/yyyy'
-    });   
-});
-
 
 </script>
 <?php
@@ -48,7 +43,7 @@ $(function() {
 $id = $_SESSION['iduser_account'];
 
 // find shipment
-$sql = "SELECT *
+$sql = "SELECT *,datediff(p_exp,p_mfd) as p_expdate
      FROM shipment as s left JOIN product as p on s.idproduct = p.idproduct
      WHERE s.idshipment = $idshow ";
 $result = $con->query($sql) or die (mysqli_error($con));
@@ -80,19 +75,19 @@ $row = $findprev->fetch_assoc();
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputTel"><a style="color: red">*</a>ชื่อผลิตภัณฑ์</label>
-                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_name'];?>" >
+                <label for="exampleInputTel"><a style="color: red">*</a>ชื่อสินค้า</label>
+                <input class="form-control" name="name" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_name'];?>" placeholder="ชื่อสินค้า" >
               </div>
             </div>
             <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputFarm"><a style="color: red">*</a>จำนวนส่งออกผลิตภัณฑ์</label>
-                <input class="form-control" name="amount" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_amount'];?>" >
+                <label for="exampleInputFarm"><a style="color: red">*</a>จำนวนส่งออกสินค้า</label>
+                <input class="form-control" name="amount" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_amount'];?>" placeholder="จำนวนสินค้าที่ส่งออก" >
               </div>
               <div class="col-md-6">
                 <label for="exampleInputFarm"><a style="color: red">*</a>หน่วย</label>
-                <input class="form-control" name="unit" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_unit'];?>" >
+                <input class="form-control" name="unit" type="text" aria-describedby="nameHelp" value="<?php echo $rowcurrent['p_unit'];?>" placeholder="เช่น ถุง ห่อ กระป๋อง เป็นต้น" >
               </div>
             </div>
             </div>
@@ -107,23 +102,22 @@ $row = $findprev->fetch_assoc();
             <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของผลิตภัณฑ์</label>
+                <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของสินค้า</label>
                 <input type="text" id="datepicker" class="form-control" name="mfddate" value="<?php 
                 $date = date_create($rowcurrent['p_mfd']);
-                echo date_format($date,"d/m/Y"); ?>" />
+                echo date_format($date,"d/m/Y"); ?>" placeholder="วันที่ผลิตของสินค้า" />
               </div>
               <div class="col-md-6">
-                <label for="exampleInputFarm"><a style="color: red">*</a>วันที่หมดอายุของผลิตภัณฑ์</label>
-                <input type="text" id="datepicker1" class="form-control" name="expdate" value="<?php 
-                $date = date_create($rowcurrent['p_exp']);
-                echo date_format($date,"d/m/Y");?>"/>
+                <label for="exampleInputFarm"><a style="color: red">*</a>อายุของสินค้า</label>
+                <input type="text"  class="form-control" name="expdate" value="<?php 
+                echo $rowcurrent['p_expdate']; ?>" placeholder="อายุของสินค้านับตั้งแต่วันที่ผลิต หน่วยเป็นวัน" />
               </div>
             </div>
             </div>
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
-                  <label for="exampleInputTel"><a style="color: red">*</a>วันที่ส่งออกของผลิตภัณฑ์</label>
+                  <label for="exampleInputTel"><a style="color: red">*</a>วันที่ส่งออกของสินค้า</label>
                   <input class="form-control" name="exportdate" type="text" aria-describedby="nameHelp" value="<?php 
                     date_default_timezone_set("Asia/Bangkok");
                     $date = new DateTime();

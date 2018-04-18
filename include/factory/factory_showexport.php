@@ -28,7 +28,7 @@
 $(function() {
     $('#datepicker').datepicker({
       format: 'dd/mm/yyyy'
-    });   
+    }); $('#datepicker').datepicker('setDate', 'now');   
 });
 
 $(function() {
