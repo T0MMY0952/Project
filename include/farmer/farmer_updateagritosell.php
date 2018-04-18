@@ -45,7 +45,7 @@ $(function() {
 </script>
 <?php
  require_once("../../connect/connect.php");
- $sql = "SELECT *
+ $sql = "SELECT *,datediff(`ap_expdate`,`ap_collectdate`) as ap_expdate
 		     FROM agriculture_product
 		     WHERE idagriculture_product = $idshow ";
 $result = $con->query($sql) or die (mysqli_error($con));
@@ -64,45 +64,50 @@ $row = $result->fetch_assoc();
             </div>
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
-                <input class="form-control" name="ap_name" type="text" autocomplete="off" value="<?php echo $row['ap_name'];?>" >
+                <input class="form-control" name="ap_name" type="text" autocomplete="off" value="<?php echo $row['ap_name'];?>" placeholder="ชื่อผลผลิต">
             </div>
             <div class="form-group col-md-8">
                 <label ><a style="color: red;">*</a>วันที่เก็บ</label>
                 <input class="form-control" name="apr_collectdate" type="text" id="datepicker"  value="<?php  
                 $date = date_create($row['ap_collectdate']);
-                echo date_format($date,"d/m/Y"); ?>" >
+                echo date_format($date,"d/m/Y"); ?>" placeholder="วันที่เก็บผลผลิต" >
             </div>
             <div class="form-group col-md-8">
                 <label >แปลงที่เก็บ</label>
-                <input class="form-control" name="apr_garden" type="text"  value="<?php echo $row['ap_garden'];?>" >
+                <input class="form-control" name="apr_garden" type="text"  value="<?php echo $row['ap_garden'];?>" placeholder="ตำแหน่งที่เก็บ เช่น สวนขนัด2 แปลงที่2 เป็นต้น"  >
             </div>
             <div class="form-group col-md-8"> 
               <div class="form-row">
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>จำนวน</label>
-                  <input class="form-control" name="apr_amount" type="text" value="<?php echo $row['ap_amount'];?>" >
+                  <input class="form-control" name="apr_amount" type="text" value="<?php echo $row['ap_amount'];?>" placeholder="จำนวนของผลผลิต" >
                 </div>
                 <div class="col-md-6">
                   <label ><a style="color: red;">*</a>หน่วย</label>
-                  <input class="form-control" name="apr_unit" type="text"  value="<?php echo $row['ap_unit'];?>">
+                  <input class="form-control" name="apr_unit" type="text"  value="<?php echo $row['ap_unit'];?>" placeholder="เช่น กิโลกรัม ถุง เป็นต้น">
                 </div>
               </div>
-            </div>
-             <div class="form-group col-md-5">
-                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
-                <input type="text" id="datepicker2" class="form-control" name="apr_expdate" value="<?php 
-                $date = date_create($row['ap_expdate']);
-                echo date_format($date,"d/m/Y");?>" />
             </div>
             <div class="form-group col-md-6">
               <div class="form-row">
                   <label >ราคาต่อหน่วย</label>
                   <div class="col-sm-10">
-                    <input class="form-control " name="apr_price" type="text"  value="<?php echo $row['ap_price'];?>" >
+                    <input class="form-control " name="apr_price" type="text"  value="<?php echo $row['ap_price'];?>" placeholder="ราคาต่อหน่วยของผลผลิต"  >
                   </div>
                   <div class="col-sm-2">
                     <label > บาท</label>
                   </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="form-row">
+                <label ><a style="color: red;">*</a>อายุของผลผลิต</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="apr_expdate" value="<?php echo $row['ap_expdate']; ?>" placeholder="อายุของผลผลิตนับจากวันที่เก็บ"/>
+                </div>
+                <div class="col-sm-2">
+                        <label >วัน</label>
+                </div>
               </div>
             </div>
             <div class="form-row">

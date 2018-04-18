@@ -67,7 +67,6 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $result1[$type.'name']; ?></div></td>
                     <?php 
                     	$date = new DateTime($row['exportdate']);
-                    	$date->modify('+543 Year');
                     ?>
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
                     <?php
