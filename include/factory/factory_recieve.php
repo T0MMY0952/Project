@@ -28,7 +28,8 @@ function showrecieve(idapr) {
                 $getid_fac = $findid_fac->fetch_assoc();
                 $sql = "SELECT *
                         FROM shipment 
-                        WHERE idfactory_recieve = '".$getid_fac['idfactory_place']."' AND status != 1 ";
+                        WHERE idfactory_recieve = '".$getid_fac['idfactory_place']."' AND status != 1 
+                        ORDER BY exportdate DESC";
                 $result = $con->query($sql) or die (mysqli_error($con));
                 $n = 1;
                 while($row = $result->fetch_assoc()){

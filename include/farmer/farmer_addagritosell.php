@@ -11,6 +11,11 @@ $(function() {
       format: 'dd/mm/yyyy'
     });   
 });
+$(function() {
+    $('#datepicker2').datepicker({
+      format: 'dd/mm/yyyy'
+    });   
+});
 
 </script>
 <div class="container-fluid">
@@ -44,6 +49,10 @@ $(function() {
                   <input class="form-control" name="apr_unit" type="text" >
                 </div>
               </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
+                <input type="text" id="datepicker2" class="form-control" name="apr_expdate" />
             </div>
             <div class="form-group col-md-6">
               <div class="form-row">

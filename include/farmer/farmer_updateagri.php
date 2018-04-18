@@ -34,6 +34,13 @@ $(function() {
       format: 'dd/mm/yyyy'
     });   
 });
+$(function() {
+    $('#datepicker2').datepicker({
+      changeMonth: true,
+      changeYear: true,
+      format: 'dd/mm/yyyy'
+    });   
+});
 
 </script>
 <?php
@@ -44,7 +51,7 @@ $(function() {
  $findidfarmer = $con->query("SELECT idfarmer FROM farmer WHERE iduser_account = '".$id."' ") or die (mysqli_error($con));
  $getidfarmer = $findidfarmer->fetch_assoc();
  $sql = "SELECT s.idshipment, ap.ap_name, ap.ap_collectdate, ap.ap_garden, s.idfactory_recieve, s.exportdate,s.status,ap.ap_amount, ap.ap_unit,
-          s.idseller_recieve,ap.ap_price,ap.idagriculture_product
+          s.idseller_recieve,ap.ap_price,ap.idagriculture_product,ap.ap_expdate
 		     FROM shipment as s left JOIN agriculture_product as ap on s.idagriculture_product = ap.idagriculture_product
 		     WHERE s.idfarmer_send = '".$getidfarmer['idfarmer']."' AND s.idshipment = $idapr ";
 $result = $con->query($sql) or die (mysqli_error($con));
@@ -98,6 +105,12 @@ $row = $result->fetch_assoc();
                     <label > บาท</label>
                   </div>
               </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
+                <input type="text" id="datepicker2" class="form-control" name="apr_expdate" value="<?php 
+                $date = date_create($row['ap_expdate']);
+                echo date_format($date,"d/m/Y");?>" />
             </div>
             <div class="form-group col-md-8">
                 <label ><a style="color: red;">*</a>วันที่ส่งออก</label>

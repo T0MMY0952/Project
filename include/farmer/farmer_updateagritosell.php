@@ -34,12 +34,19 @@ $(function() {
       changeYear: true
     });   
 });
+$(function() {
+    $('#datepicker2').datepicker({
+      changeMonth: true,
+      changeYear: true,
+      format: 'dd/mm/yyyy'
+    });   
+});
 
 </script>
 <?php
  require_once("../../connect/connect.php");
  $sql = "SELECT *
-		     FROM agriculture_product 
+		     FROM agriculture_product
 		     WHERE idagriculture_product = $idshow ";
 $result = $con->query($sql) or die (mysqli_error($con));
 $row = $result->fetch_assoc();
@@ -80,6 +87,12 @@ $row = $result->fetch_assoc();
                   <input class="form-control" name="apr_unit" type="text"  value="<?php echo $row['ap_unit'];?>">
                 </div>
               </div>
+            </div>
+             <div class="form-group col-md-5">
+                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
+                <input type="text" id="datepicker2" class="form-control" name="apr_expdate" value="<?php 
+                $date = date_create($row['ap_expdate']);
+                echo date_format($date,"d/m/Y");?>" />
             </div>
             <div class="form-group col-md-6">
               <div class="form-row">

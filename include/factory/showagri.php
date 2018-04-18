@@ -5,7 +5,7 @@ $findfarmer = $con->query("SELECT farmname,farmaddress,farmername, farmersurname
 $getfarmer = $findfarmer->fetch_assoc();
 
 // find agriculture product 
-$findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, ap_unit FROM agriculture_product 
+$findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, ap_unit, ap_expdate FROM agriculture_product 
             WHERE idagriculture_product = '".$row['idagriculture_product']."' "); 
 $getagri = $findagri->fetch_assoc();
 ?>
@@ -57,6 +57,10 @@ $getagri = $findagri->fetch_assoc();
                 <input class="form-control"  type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $getagri['ap_amount']; echo '  '; echo $getagri['ap_unit']; ?>">
               </div>
             </div>
+          </div>
+          <div class="form-group col-md-5">
+                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
+                <input type="text" class="form-control" disabled="disabled" name="apr_expdate" value="<?php echo $getagri['ap_expdate'];?>" />
           </div>
         </div>
       </div>

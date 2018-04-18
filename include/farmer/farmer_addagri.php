@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 <?php 
   require_once("./connect/connect.php");
@@ -8,6 +7,11 @@
 <script type="text/javascript">
 $(function() {
     $('#datepicker').datepicker({
+      format: 'dd/mm/yyyy'
+    });   
+});
+$(function() {
+    $('#datepicker2').datepicker({
       format: 'dd/mm/yyyy'
     });   
 });
@@ -55,6 +59,10 @@ $(function() {
                     <label > บาท</label>
                   </div>
               </div>
+            </div>
+            <div class="form-group col-md-5">
+                <label ><a style="color: red;">*</a>วันที่หมดอายุ</label>
+                <input type="text" id="datepicker2" class="form-control" name="apr_expdate" />
             </div>
             <div class="form-group col-md-8">
                 <label ><a style="color: red;">*</a>วันที่ส่งออก</label>
