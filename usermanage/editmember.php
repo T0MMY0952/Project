@@ -12,8 +12,12 @@
 </script>
 <?php
 require_once("./connect/connect.php");
-$id = $_SESSION['id'.$type.'_staff'];
-$finddetail = $con->query("SELECT * FROM user_account as u LEFT JOIN ".$type."_staff AS s ON u.iduser_account = s.iduser_account WHERE id".$type."_staff = $id ") 
+$id = $_SESSION['iduser_account'];
+$finddetail = $con->query("SELECT * 
+                           FROM user_account as u 
+                           LEFT JOIN ".$type."_staff AS s ON u.iduser_account = s.iduser_account
+                           LEFT JOIN ".$type."_place AS p ON s.id".$type."_place = p.id".$type."_place
+                           WHERE u.iduser_account = $id ") 
 or die (mysqli_error($con));
 $getdetail = $finddetail->fetch_assoc();
 ?>
@@ -25,6 +29,15 @@ $getdetail = $finddetail->fetch_assoc();
       </ol>
       <div class="col-md-8">
         <form method="post" action="./usermanage/updatemember.php?type=<?php echo $type; ?>&id=<?php echo $id; ?>" enctype="multipart/form-data">
+            <div class="form-group col-md-6">
+                <label ><a style="color:red;">*</a>ประเภทผู้ใช้งาน</label>
+                <select class="form-control" name="type" id = "usertype" disabled="disabled">
+                 <option >เลือกประเภทผู้ใช้งาน</option>
+                 <option value="1" <?php if ($type == "farmer"){echo 'selected="selected""';}?>>เกษตรกร</option>
+                 <option value="2" <?php if ($type == "factory" || $type == "factoryadmin"){echo 'selected="selected""';}?>>โรงงาน</option>
+                 <option value="3" <?php if ($type == "seller"  || $type == "selleradmin"){echo 'selected="selected""';}?>>ผู้จัดจำหน่าย</option>
+                </select>
+            </div>
             <div class="form-group col-md-8">
             	<label ><a style="color:red;">*</a>อีเมลล์ </label>
             	<input class="form-control" name="email" type="email" placeholder="อีเมลล์" value="<?php echo $getdetail['email']; ?>">
@@ -52,12 +65,34 @@ $getdetail = $finddetail->fetch_assoc();
                 <input class="form-control" name="tel" type="number" placeholder="กรอกเบอร์โทรศัพท์" value="<?php echo $getdetail[$type.'_stafftel']; ?>">
             </div>
             <div class="form-group col-md-8">
-             <label ><a style="color:red;">*</a>รูปภาพบุคคล</label>
+             <label for="exampleInputAddress">รูปภาพบุคคล</label>
                <input name="peoplepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(event)" >
                <div class="wrapper">
                 <p><p><?php echo "<img src='images/".$getdetail[$type."_staffpic"]."'" ?> class="img-responsive"  id="output"/><p>
                </div>
-            </div> 
+          </div> 
+            <div class="form-group col-md-8 search-box">
+                <label ><a style="color:red;">*</a>ชื่อสวน/ฟาร์ม/โรงงาน/บริษัท</label>
+                <input class="form-control" name="businessname" type="text"  placeholder="กรอกชื่อสวน/ฟาร์ม/โรงงาน/บริษัท" autocomplete="off" value="<?php echo $getdetail["{$type}name"];?>" disabled="disabled">
+                <div class="result"></div>
+            </div>
+            
+            <div class="form-group col-md-12">
+                <label ><a style="color:red;">*</a>ที่อยู่</label>
+                <textarea class="form-control" name="businessaddress" rows="3" disabled="disabled" ><?php echo $getdetail["{$type}address"];?></textarea>
+            </div>
+        
+            <div class="form-group col-md-6">
+                <label >เบอร์โทรศัพท์สวน/ฟาร์ม/โรงงาน/บริษัท</label>
+                <input class="form-control" name="businesstel" type="text" aria-describedby="nameHelp" placeholder="กรอกเบอร์โทรศัพท์สถานประกอบการ" value="<?php echo $getdetail["{$type}tel"];?>" disabled="disabled">
+            </div>
+            <div class="form-group col-md-8">
+             <label for="exampleInputAddress">รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
+               <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile1(event)"" disabled="disabled" >
+               <div class="wrapper">
+                <p><p><?php echo "<img src='images/".$getdetail["{$type}pic"]."'" ?> class="img-responsive"  id="output1"/><p>
+               </div>
+          </div> 
             <div class="form-row">
             <div class="col-xs-6 col-sm-6 col-md-6">
                 <button class="btn btn-success btn-block" type="submit" mt-5>ตกลง</button>
