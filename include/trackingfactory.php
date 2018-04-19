@@ -75,8 +75,38 @@
     <div class="col-sm-9">
       <input type="text" class="form-control" id="inputPassword3" value="<?php echo $getinfo2['factorytel']; ?>" disabled="disabled">
     </div>
-   </div>
-    
+  </div>
+  <div class="form-group form-group-sm">
+    <label for="inputPassword3" class="control-label">มาตราฐานที่ได้รับ</label>
+      <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">มาตราฐาน</th>
+                  <th scope="col">วันที่เพิ่มมาตราฐาน</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $findstd = $con->query("SELECT * FROM standard WHERE idfactory_place = '".$getinfo2['idfactory_place']."' ");
+                
+                while ($getstd = $findstd->fetch_assoc()){
+                ?>
+                <tr>
+                  
+                  <td><?php echo $getstd['standard'];?></td>
+                  <td>
+                  <?php 
+                  $date = date_create($getstd['dateadd']);
+                  echo $date->format('d/m/y'); ?></td>
+                
+                </tr>
+                <?php
+                
+                }
+              ?>
+              </tbody>
+      </table>
+    </div>
   </div>
   </div>
   <!------ปิด col-5 ---->
