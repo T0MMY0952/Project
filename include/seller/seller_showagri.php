@@ -85,6 +85,28 @@ $row = $result->fetch_assoc();
               </div>
             </div>
           </div>
+          <div class="form-group col-md-6">
+              <div class="form-row">
+                  <label >ราคาต่อหน่วย</label>
+                  <div class="col-sm-10">
+                    <input class="form-control " name="apr_price" type="text"  value="<?php echo $row['ap_price'];?>" placeholder="ราคาต่อหน่วยของผลผลิต"  >
+                  </div>
+                  <div class="col-sm-2">
+                    <label > บาท</label>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <div class="form-row">
+                <label ><a style="color: red;">*</a>อายุของผลผลิต</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="apr_expdate" value="<?php echo $row['ap_expdate']; ?>" placeholder="อายุของผลผลิตนับจากวันที่เก็บ"/>
+                </div>
+                <div class="col-sm-2">
+                        <label >วัน</label>
+                </div>
+              </div>
+            </div>
           <div class="form-group">
             <div class="form-row">
               

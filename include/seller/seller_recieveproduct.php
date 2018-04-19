@@ -45,7 +45,7 @@ function recieveagri(id) {
                         echo '<td><div align="center">'; echo $getproduct['p_name']; echo '</div></td>';
                         echo '<td><div align="center">'; echo $getproduct['p_amount']; echo '&nbsp'; echo $getproduct['p_unit']; echo '</div></td>';
                         $date = new DateTime($row['exportdate']);
-                        $date->modify('+543 Year');
+                        
                         $findfac = $con->query("SELECT factoryname FROM factory_place WHERE idfactory_place = '".$row['idfactory_send']."'");
                         $getfac = $findfac->fetch_assoc();
                         echo '<td><div align="center">'; echo $getfac['factoryname']; echo '</div></td>';
@@ -57,7 +57,7 @@ function recieveagri(id) {
                         echo '<td><div align="center">'; echo $getagri['ap_name']; echo '</div></td>';
                         echo '<td><div align="center">'; echo $getagri['ap_amount']; echo '&nbsp'; echo $getagri['ap_unit']; echo '</div></td>';
                         $date = new DateTime($getagri['ap_exportdate']);
-                        $date->modify('+543 Year');
+                        
                         $findfac = $con->query("SELECT farmername, farmersurname FROM farmer WHERE idfarmer = '".$row['idfarmer_send']."'");
                         $getfac = $findfac->fetch_assoc();
                         echo '<td><div align="center">'; echo $getfac['farmername']; echo ' '; echo $getfac['farmersurname']; echo '</div></td>';
