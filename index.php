@@ -78,7 +78,7 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 		}elseif(isset($_GET['action']) && $_GET['action'] == "standard"){
 			include("usermanage/standard.php");
 		}else{
-			include("include/factory/factory_home.php");
+			include("include/factory/factory_homeadmin.php");
 		}
 	}
 	if($_SESSION['type'] == "factory"){
@@ -110,7 +110,7 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 			$type = "seller";
 			include("usermanage/listuser.php");
 		}else{
-			include("include/seller/seller_home.php");
+			include("include/seller/seller_homeadmin.php");
 		}
 	}
 	if($_SESSION['type'] == "seller"){
