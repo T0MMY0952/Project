@@ -79,9 +79,9 @@ $type = $_GET['type'];
 
         <ul>
 	  	<li><label><strong>จำนวน QR Code ที่ต้องการ</strong></label></li><br>
-		 <input class="form-control" type="int" name="qrcode" value = 1 id="qrcode"></input><br>
+		 <input class="form-control" type="int" name="qrcode" value = 35 id="qrcode"></input><br>
 	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ</strong></label></li><br>
-		 <input class="form-control" type="int" name="size" value = 200 id="size"></input><br><br>
+		 <input class="form-control" type="int" name="size" value = 150 id="size"></input><br><br>
 		 <input type="hidden" name="idshipment" value="<?php echo $id; ?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
      <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
