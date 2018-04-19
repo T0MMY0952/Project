@@ -49,7 +49,9 @@
   <div class="form-group form-group-sm" >
     <label for="inputEmail3" class="col-sm-7 control-label">วันที่ผลิตของสินค้า</label>
     <div class="col-sm-9 ">
-      <input type="email" class="form-control" id="inputEmail3" value="<?php echo $getinfo2['p_mfd']; ?>" disabled="disabled">
+      <input type="email" class="form-control" id="inputEmail3" value="<?php 
+      $date = date_create($getinfo2['p_mfd']); 
+      echo $date->format('d/m/Y');?>" disabled="disabled">
     </div>
 
   </div>
@@ -57,7 +59,9 @@
     <div class="form-group form-group-sm" >
     <label for="inputEmail3" class="col-sm-7 control-label">วันที่หมดอายุของสินค้า</label>
     <div class="col-sm-9 ">
-      <input type="email" class="form-control" id="inputEmail3" value="<?php echo $getinfo2['p_exp']; ?>" disabled="disabled">
+      <input type="email" class="form-control" id="inputEmail3" value="<?php 
+       $date = date_create($getinfo2['p_exp']); 
+       echo $date->format('d/m/Y'); ?>" disabled="disabled">
     </div>
  
   </div>
@@ -65,7 +69,9 @@
   <div class="form-group form-group-sm">
     <label for="inputPassword3" class="col-sm-4 control-label">วันที่รับสินค้า</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="inputPassword3" value="<?php echo $getinfo2['recievedate']; ?>" disabled="disabled">
+      <input type="text" class="form-control" id="inputPassword3" value="<?php 
+       $date = date_create($getinfo2['recievedate']); 
+       echo $date->format('d/m/Y H:i:s'); ?>" disabled="disabled">
     </div>
 
   </div>

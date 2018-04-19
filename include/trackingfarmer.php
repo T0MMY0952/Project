@@ -23,13 +23,17 @@
   <div class="form-group form-group-sm">
     <label for="inputEmail3" class="col-sm-4 control-label">วันที่เก็บ</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" id="inputEmail3" value="<?php echo $getinfo1['ap_collectdate']; ?>" disabled="disabled">
+      <input type="email" class="form-control" id="inputEmail3" value="<?php 
+       $date = date_create($getinfo1['ap_collectdate']); 
+       echo $date->format('d/m/Y');?>" disabled="disabled">
     </div>
   </div>
   <div class="form-group form-group-sm">
     <label for="inputEmail3" class="col-sm-4 control-label">วันที่ส่งออก</label>
     <div class="col-sm-9">
-      <input type="email" class="form-control" id="inputEmail3" value="<?php echo $getinfo1['exportdate']; ?>" disabled="disabled">
+      <input type="email" class="form-control" id="inputEmail3" value="<?php 
+       $date = date_create($getinfo1['exportdate']); 
+       echo $date->format('d/m/Y H:i:s');?>" disabled="disabled">
     </div>
   </div>
   <div class="form-group form-group-sm">
