@@ -1,5 +1,5 @@
-<hr width="100%"> 
-<form method="post" action="agriexport.php?idshow=<?php echo $idshow?>">
+  <form method="post" action="agriexport.php?idshow=<?php echo $idshow?>">
+      <hr width="100%"> 
         <div class="col-md-8">
           <div class="form-group">
             <div class="form-row">
@@ -35,10 +35,14 @@
                 <label for="exampleInputTel"><a style="color: red">*</a>วันที่ผลิตของสินค้า</label>
                 <input type="text" id="datepicker" class="form-control" name="mfddate" placeholder="วันที่ผลิตของสินค้า" />
               </div>
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <label for="exampleInputFarm"><a style="color: red">*</a>อายุของสินค้า</label>
-                <input type="text"  class="form-control" name="expdate" placeholder="อายุของสินค้านับตั้งแต่วันที่ผลิต หน่วยเป็นวัน" />
+                <input type="text"  class="form-control" name="expdate" placeholder="อายุของสินค้านับตั้งแต่วันที่ผลิต"/> 
               </div>
+              <div class="col-md-1">
+                <br><br>&nbsp;
+                <label for="exampleInputFarm">วัน</label>
+              </div>    
             </div>
           </div>
           <div class="form-group">
@@ -90,6 +94,8 @@
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
               <a class="btn btn-danger btn-block" href="javascript:window.open('','_self').close();" mt-5>ยกเลิก</a>
+              <br>
+              <br>
               </div>
           </div>
       </div>

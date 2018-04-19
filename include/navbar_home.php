@@ -127,7 +127,7 @@ $(document).ready(function(){
             </ul> 
             </li>
             	 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=standard">
-            <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspมาตราฐานการผลิต</span></a></li>
+            <img widht="23px" height="23px" src="images/Standrad.png"><span class="nav-link-text">&nbsp&nbspมาตราฐานการผลิต</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveagri">
             <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
         		     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=exportproduct">

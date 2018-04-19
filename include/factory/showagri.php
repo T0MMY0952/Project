@@ -77,6 +77,7 @@ $getagri = $findagri->fetch_assoc();
             </div>
           </div>
         </div>
-        </div>
       </div>
+  
+      
       
