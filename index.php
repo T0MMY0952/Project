@@ -75,6 +75,8 @@ echo '<div class="container-fluid" style="margin-top: 60px; margin-bottom:60px">
 		}elseif(isset($_GET['action']) && $_GET['action'] == "listuser"){
 			$type = "factory";
 			include("usermanage/listuser.php");
+		}elseif(isset($_GET['action']) && $_GET['action'] == "standard"){
+			include("usermanage/standard.php");
 		}else{
 			include("include/factory/factory_home.php");
 		}
