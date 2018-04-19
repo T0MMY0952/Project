@@ -114,7 +114,7 @@ $type = $_POST['type'];
       $getplace = $findplace->fetch_assoc();
       $place = $getplace['farmname'];
       $exp = date_create($array['ap_expdate']);
-      $exp = $exp->format('d/m/y');
+      $exp = $exp->format('d/m/Y');
 
 		}elseif($type == "seller"){
       $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
@@ -128,7 +128,7 @@ $type = $_POST['type'];
                                 WHERE idproduct = '".$array['idproduct']."'") or die (mysqli_error($con));
       $getexp = $findexp->fetch_assoc();
       $exp = date_create($getexp['p_exp']);
-      $exp = $exp->format('d/m/y');
+      $exp = $exp->format('d/m/Y');
     }
 
 		// display QR code image
