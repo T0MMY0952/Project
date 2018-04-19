@@ -50,6 +50,7 @@ page[size="A4"] {
   margin-top: 2%; 
 }
 
+
 </style>
 </head>
 
@@ -67,8 +68,8 @@ page[size="A4"] {
 
 <body> 
 <?php 
-$id = $_GET['idshipment'];
-$type = $_GET['type']; 
+$array =  unserialize(base64_decode($_POST['data']));
+$type = $_POST['type']; 
 ?>
 
 	<div class="col-20">
@@ -79,10 +80,10 @@ $type = $_GET['type'];
 
         <ul>
 	  	<li><label><strong>จำนวน QR Code ที่ต้องการ</strong></label></li><br>
-		 <input class="form-control" type="int" name="qrcode" value = 35 id="qrcode"></input><br>
+		 <input class="form-control" type="int" name="qrcode" value = 25 id="qrcode"></input><br>
 	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ</strong></label></li><br>
 		 <input class="form-control" type="int" name="size" value = 150 id="size"></input><br><br>
-		 <input type="hidden" name="idshipment" value="<?php echo $id; ?>" />
+		 <input type="hidden" name="data" value="<?= base64_encode(serialize($array)); ?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
      <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
 		 <button style="cursor:pointer;" class="btn btn-success btn-block" href="#" id="print" onclick="javascript:printlayer('printqrcode')">Print</button>
@@ -100,11 +101,34 @@ $type = $_GET['type'];
 		// QR_BarCode object 
 		$qr = new QR_BarCode(); 
 
+    // include connect
+    require_once('../connect/connect.php');
+
 		// create text QR code 
     if($type == "farmer"){
-      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$id); 
-		}else{
-      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$id."&type=".$type); 
+      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$array['idagriculture_product']);
+      $findplace = $con->query("SELECT * 
+                                FROM farm_place AS fp 
+                                LEFT JOIN farmer AS f ON fp.idfarm_place = f.idfarm_place  
+                                WHERE f.idfarmer = '".$array['idfarmer']."'") or die (mysqli_error($con));
+      $getplace = $findplace->fetch_assoc();
+      $place = $getplace['farmname'];
+      $exp = date_create($array['ap_expdate']);
+      $exp = $exp->format('d/m/y');
+
+		}elseif($type == "seller"){
+      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
+      $findplace = $con->query("SELECT * 
+                                FROM seller_place  
+                                WHERE idseller_place = '".$array['idseller_recieve']."'") or die (mysqli_error($con));
+      $getplace = $findplace->fetch_assoc();
+      $place = $getplace['sellername'];
+      $findexp = $con->query("SELECT * 
+                                FROM product  
+                                WHERE idproduct = '".$array['idproduct']."'") or die (mysqli_error($con));
+      $getexp = $findexp->fetch_assoc();
+      $exp = date_create($getexp['p_exp']);
+      $exp = $exp->format('d/m/y');
     }
 
 		// display QR code image
@@ -112,10 +136,16 @@ $type = $_GET['type'];
 		$size = $_POST['size'];
 		$qr->size($size);
 		$img = $qr->qrCode();
-
+    echo '<div class="row">';
 		for($i = 1 ; $i <= $qrcode ; $i++){
-		echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
+      echo '<div class="card">';
+      echo '<a class="text-center">'.$place.'</a>';
+		  echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
+      echo '<a class="text-center">วันหมดอายุของสินค้า<br></a>';
+      echo '<a class="text-center">'.$exp.'</a>';
+      echo '</div>';
 		}
+     echo '</div>';
 		?>
 		</page>
   	</div>
