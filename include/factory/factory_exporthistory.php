@@ -27,7 +27,6 @@ $(document).ready(function(){
                   <th><div align="center">สถานที่ปลายทาง</div></th>
                   <th><div align="center">สถานะ</div></th>
                   <th><div align="center">แก้ไข/ลบ</div></th>
-                  <th><div align="center">พิมพ์ QR Code</div></th>
                 </tr>
               </thead>
               <tbody>
@@ -100,7 +99,6 @@ $(document).ready(function(){
                         }
                     }
                     ?>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img widht="34px" height="34px" src="images/Print.png"></a></div></td>
                 </tr>
                 <?php $n = $n+1; } ?>
              </tbody>

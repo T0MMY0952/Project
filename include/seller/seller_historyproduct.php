@@ -3,6 +3,19 @@ function qrcode(id) {
     var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=seller", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
 }
 </script> 
+<style type="text/css">
+  .btn-link{
+  border:none;
+  outline:none;
+  background:none;
+  cursor:pointer;
+  color:#0000EE;
+  padding:0;
+  text-decoration:underline;
+  font-family:inherit;
+  font-size:inherit;
+}
+</style>
      <div class="container-fluid">
      <!-- Example DataTables Card-->
         <ol class="breadcrumb">
@@ -81,7 +94,12 @@ function qrcode(id) {
                     <?php
                       }
                     ?>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idshipment']; ?>)" href=""><img widht="34px" height="34px" src="images/Print.png"></a></div></td>
+                    <td><div align="center">
+                      <form action="./include/show_QR.php" method="post" target="_blank">
+                      <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
+                      <INPUT TYPE="hidden" NAME="type" VALUE="seller">
+                      <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                    </form></a></div></td>
                 </tr>
                 <?php 
                 $n = $n+1;
