@@ -46,7 +46,7 @@ $(document).ready(function(){
               <tbody>
                 <?php
                 require_once("./connect/connect.php");
-                $sql = "SELECT *
+                $sql = "SELECT *,ap.idagriculture_product as idagriculture_product
 						            FROM agriculture_product as ap
                         LEFT JOIN shipment as s  on ap.idagriculture_product = s.idagriculture_product
 						            WHERE idfarmer = '".$_SESSION['idfarmer']."' AND s.idagriculture_product IS NULL
@@ -79,8 +79,8 @@ $(document).ready(function(){
                     <img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <td><div align="center">
                     <form action="./include/show_QR.php" method="post" target="_blank">
-                      <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
-                      <INPUT TYPE="hidden" NAME="type" VALUE="farmer">
+                    <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
+                    <INPUT TYPE="hidden" NAME="type" VALUE="farmer">
                       <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
                     </form>
                     </div></td>
