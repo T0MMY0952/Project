@@ -10,13 +10,12 @@ $p_amount = $_POST['amount'];
 $p_unit = $_POST['unit'];
 $p_process = $_POST['process'];
 $mfd = strtr($_POST['mfddate'], '/', '-');
-$p_mfd = date('Y-m-d',strtotime($mfd)); 
-$exp = date_modify(date_create($p_mfd) ,'+'.$_POST['expdate'].'day' );
-$p_exp = $exp->format('Y-m-d');
+$p_mfd = date('Y-m-d',strtotime($mfd));
+$get_expdate = $_POST['expdate'];
 $p_exportdate = date('Y-m-d H:i:s'); 
 $idsendto = $_POST['idrecieve'];
 
-if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || empty($mfd) || empty($exp)  || empty($idsendto) || empty($p_exportdate)){
+if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || empty($mfd) || empty($exp)  || empty($idsendto) || empty($p_exportdate) || empty($get_expdate)){
 	echo '<script type="text/javascript" >
 			alert("กรอกข้อมูลไม่ครบ");
 			window.location.href = "javascript:history.back()";
@@ -29,6 +28,8 @@ if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || 
 			$idrecieve = 'idfactory_recieve';
 			$idvalue   = $idsendto;
 	}
+	$exp = date_modify(date_create($p_mfd) ,'+'.$_POST['expdate'].'day' );
+	$p_exp = $exp->format('Y-m-d');
 	$findfac = $con->query("SELECT idfactory_place FROM factory_staff WHERE iduser_account = $id");
 	$getfac = $findfac->fetch_assoc();
 	$insertproduct = $con->query("INSERT INTO product (idfactory_place, p_name, p_amount, p_unit, p_process, p_mfd, p_exp) VALUES ('".$getfac['idfactory_place']."', '$p_name', '$p_amount', '$p_unit', '$p_process', '$p_mfd', '$p_exp')") or die (mysqli_error($con));
