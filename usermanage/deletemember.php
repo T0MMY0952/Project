@@ -6,8 +6,11 @@ $type = $_GET['type'];
 if (!unlink($_SERVER['DOCUMENT_ROOT'] ."/sp_60_TrackingForAg/images/".$getimage[$type."_staffpic"]."")){
 	echo "Delete Picture Fail";
 }
+$deleteuser  = $con->query("DELETE FROM user_account 
+	           WHERE iduser_account = (SELECT iduser_account FROM ".$type."_staff WHERE id".$type."_staff = $id) ") or die (mysqli_error($con)) ;
 $deletestaff  = $con->query("DELETE FROM ".$type."_staff WHERE id".$type."_staff = $id ") or die (mysqli_error($con)) ;
-if($deletestaff){
+
+if($deletestaff && $deleteuser){
 	echo '<script type="text/javascript" >
 				alert("ลบผู้ใช้เรียบร้อย");
 				window.location.href = "javascript:history.back()";
