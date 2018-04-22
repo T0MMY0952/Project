@@ -47,6 +47,7 @@ $result = $con->query($sql) or die (mysqli_error($con));
 $row = $result->fetch_assoc();
 ?>
   <div class="container-fluid">
+    <br>
       <ol class="breadcrumb">
         <h3 align="center">แสดงรายละเอียด&nbsp(<?php echo 'รหัสการรับผลผลิต&nbsp'; echo $idshow;?>)</h3>
       </ol>

@@ -9,7 +9,11 @@ $findagri = $con->query("SELECT ap_name, ap_collectdate, ap_garden, ap_amount, a
             WHERE idagriculture_product = '".$row['idagriculture_product']."' "); 
 $getagri = $findagri->fetch_assoc();
 ?>
-      <hr width="100%">
+      <div class="card">
+        <div class="card-header text-black" color="#e9ecef">
+            รายละเอียดสินค้าที่รับมา
+        </div>
+        <br>
          <div class="col-md-8">
           <div class="form-group">
             <div class="form-row">
@@ -78,6 +82,8 @@ $getagri = $findagri->fetch_assoc();
           </div>
         </div>
       </div>
+    </div>
+    <br>
   
       
       

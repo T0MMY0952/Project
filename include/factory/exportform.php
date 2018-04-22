@@ -1,6 +1,10 @@
   <form method="post" action="agriexport.php?idshow=<?php echo $idshow?>">
-      <hr width="100%"> 
-        <div class="col-md-8">
+      <div class="card">
+        <div class="card-header text-black" color="#e9ecef">
+               กรอกข้อมูลส่งออกผลิตภัณฑ์
+        </div>
+        <br>
+         <div class="col-md-8">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -95,8 +99,9 @@
               <div class="col-xs-6 col-sm-6 col-md-6">
               <a class="btn btn-danger btn-block" href="javascript:window.open('','_self').close();" mt-5>ยกเลิก</a>
               <br>
-              <br>
               </div>
           </div>
       </div>
+    </div>
+    <br>
 </form>
