@@ -32,17 +32,17 @@ $(document).ready(function(){
            $get = $find->fetch_assoc();
           
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
-            <img widht="24px" height="24px"  src="images/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
+            <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["farmername"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="หน้าหลัก"><a class="nav-link" href="index.php" class="active">
-            <img widht="24px" height="24px" src="images/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
+            <img widht="24px" height="24px" src="icon/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="แก้ไขข้อมูลส่วนตัว"><a class="nav-link" href="index.php?action=edituser">
-            <img widht="23px" height="23px" src="images/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
+            <img widht="23px" height="23px" src="icon/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
             	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="เพิ่มข้อมูลผลผลิต">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents1" >
-                <img widht="24px" height="24px" src="images/Product.png"><span class="nav-link-text">&nbsp&nbspเพิ่มข้อมูลผลผลิต</span></a>
+                <img widht="24px" height="24px" src="icon/Product.png"><span class="nav-link-text">&nbsp&nbspเพิ่มข้อมูลผลผลิต</span></a>
             <ul class="sidenav-second-level collapse" id="collapseComponents1">
               <li><a href="index.php?action=addagritosell">เพิ่มผลผลิตที่จำหน่าย</a></li>
               <li><a href="index.php?action=addagri">เพิ่มผลผลิตที่ส่งออก</a></li>
@@ -50,7 +50,7 @@ $(document).ready(function(){
             </li>
             	<li class="nav-item" data-toggle="tooltip" data-placement="right" title="ประวัติผลผลิต">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" >
-               <img widht="24px" height="24px" src="images/History.png"><span class="nav-link-text">&nbsp&nbspประวัติผลผลิต</span></a>
+               <img widht="24px" height="24px" src="icon/History.png"><span class="nav-link-text">&nbsp&nbspประวัติผลผลิต</span></a>
             <ul class="sidenav-second-level collapse" id="collapseComponents2">
               <li><a href="index.php?action=historyagrisell">&nbsp&nbspประวัติผลผลิตที่จำหน่าย</a></li>
               <li><a href="index.php?action=history">&nbsp&nbspประวัติผลผลิตที่ส่งออก</a></li>
@@ -64,26 +64,26 @@ $(document).ready(function(){
           $get = $find->fetch_assoc();
           
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
-            <img widht="24px" height="24px"  src="images/User.png"></i><span class="nav-link-text">&nbspสวัสดีคุณ';
+            <img widht="24px" height="24px"  src="icon/User.png"></i><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
            echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
-            <img widht="24px" height="24px" src="images/Home.png"></i><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
+            <img widht="24px" height="24px" src="icon/Home.png"></i><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
-            <img widht="23px" height="23px" src="images/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
+            <img widht="23px" height="23px" src="icon/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" >
-                <img widht="23px" height="23px" src="images/AddUser.png"><span class="nav-link-text">&nbsp&nbspจัดการข้อมูลสมาชิก</span></a>
+                <img widht="23px" height="23px" src="icon/AddUser.png"><span class="nav-link-text">&nbsp&nbspจัดการข้อมูลสมาชิก</span></a>
             <ul class="sidenav-second-level collapse" id="collapseComponents">
               <li><a href="index.php?action=adduser">เพิ่มสมาชิก</a></li>
               <li><a href="index.php?action=listuser">รายชื่อสมาชิก</a></li>
             </ul> 
             </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <img widht="24px" height="24px" src="images/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการรับสินค้า</span></a></li>';
+            <img widht="24px" height="24px" src="icon/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการรับสินค้า</span></a></li>';
           }
           if ($_SESSION['type'] == "seller"){
             //-- Login Seller
@@ -91,18 +91,18 @@ $(document).ready(function(){
           $get = $find->fetch_assoc();
           
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
-            <img widht="24px" height="24px"  src="images/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
+            <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["seller_staffname"];
            echo '</span></a></li>';
            echo'<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
-            <img widht="24px" height="24px" src="images/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
+            <img widht="24px" height="24px" src="icon/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
-            <img widht="23px" height="23px" src="images/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
+            <img widht="23px" height="23px" src="icon/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveproduct">
-            <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <img widht="24px" height="24px" src="images/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการรับสินค้า</span></a></li>';
+            <img widht="24px" height="24px" src="icon/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการรับสินค้า</span></a></li>';
           }
           if ($_SESSION['type'] == "factoryadmin"){
             //-- Login Factory
@@ -110,30 +110,30 @@ $(document).ready(function(){
             $get = $find->fetch_assoc();
           
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
-            <img widht="24px" height="24px"  src="images/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
+            <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
-            <img widht="24px" height="24px" src="images/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
+            <img widht="24px" height="24px" src="icon/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
-            <img widht="23px" height="23px" src="images/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
+            <img widht="23px" height="23px" src="icon/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
             <a class="nav-link  nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" >
-                <img widht="23px" height="23px" src="images/AddUser.png"><span class="nav-link-text">&nbsp&nbspจัดการข้อมูลสมาชิก</span></a>
+                <img widht="23px" height="23px" src="icon/AddUser.png"><span class="nav-link-text">&nbsp&nbspจัดการข้อมูลสมาชิก</span></a>
             <ul class="sidenav-second-level collapse" id="collapseComponents">
               <li><a href="index.php?action=adduser">เพิ่มสมาชิก</a></li>
               <li><a href="index.php?action=listuser">รายชื่อสมาชิก</a></li>
             </ul> 
             </li>
             	 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=standard">
-            <img widht="23px" height="23px" src="images/Standrad.png"><span class="nav-link-text">&nbsp&nbspมาตราฐานการผลิต</span></a></li>
+            <img widht="23px" height="23px" src="icon/Standrad.png"><span class="nav-link-text">&nbsp&nbspมาตราฐานการผลิต</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveagri">
-            <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
         		     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=exportproduct">
-            <img widht="23px" height="23px" src="images/Up.png"><span class="nav-link-text">&nbsp&nbspส่งออกสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Up.png"><span class="nav-link-text">&nbsp&nbspส่งออกสินค้า</span></a></li>
 				         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <img widht="24px" height="24px" src="images/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการส่งออกสินค้า</span></a></li>';
+            <img widht="24px" height="24px" src="icon/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการส่งออกสินค้า</span></a></li>';
           }
           if ($_SESSION['type'] == "factory"){
             //-- Login Factory
@@ -141,23 +141,23 @@ $(document).ready(function(){
             $get = $find->fetch_assoc();
           
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
-            <img widht="24px" height="24px"  src="images/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
+            <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["factory_staffname"];
            echo '</span></a></li>';
            echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard"><a class="nav-link" href="index.php" class="active">
-            <img widht="24px" height="24px" src="images/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
+            <img widht="24px" height="24px" src="icon/Home.png"><span class="nav-link-text">&nbsp&nbspหน้าหลัก</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts"><a class="nav-link" href="index.php?action=edituser">
-            <img widht="23px" height="23px" src="images/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
+            <img widht="23px" height="23px" src="icon/Edituser.png"><span class="nav-link-text">&nbsp&nbspแก้ไขข้อมูลส่วนตัว</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=recieveagri">
-            <img widht="23px" height="23px" src="images/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Down.png"><span class="nav-link-text">&nbsp&nbspรับสินค้า</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=exportproduct">
-            <img widht="23px" height="23px" src="images/Up.png"><span class="nav-link-text">&nbsp&nbspส่งออกสินค้า</span></a></li>
+            <img widht="23px" height="23px" src="icon/Up.png"><span class="nav-link-text">&nbsp&nbspส่งออกสินค้า</span></a></li>
                  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link" href="index.php?action=historyproduct">
-            <img widht="24px" height="24px" src="images/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการส่งออกสินค้า</span></a></li>';
+            <img widht="24px" height="24px" src="icon/History.png"><span class="nav-link-text">&nbsp&nbspประวัติการส่งออกสินค้า</span></a></li>';
           }
       echo '<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables"><a class="nav-link logout" href="#logout">
-            <img widht="24px" height="24px" src="images/Logout.png"><span class="nav-link-text">&nbsp&nbspออกจากระบบ</span></a></li>';
+            <img widht="24px" height="24px" src="icon/Logout.png"><span class="nav-link-text">&nbsp&nbspออกจากระบบ</span></a></li>';
       echo '</ul>
       <ul class="navbar-nav ml-auto">
       </ul>';
