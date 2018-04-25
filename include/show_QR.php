@@ -15,6 +15,7 @@
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin.css" rel="stylesheet">
   <link href="../css/tracking.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <style type="text/css">
 body {
   background: rgb(204,204,204); 
@@ -56,14 +57,31 @@ page[size="A4"] {
 
 
 <script type="text/javascript">
-	function printlayer(layer){
-		var generator = window.open(",'name,");
-		var layertext = document.getElementById(layer);
-		generator.document.write(layertext.innerHTML.replace("Print Me"));
-		generator.document.close();
-		generator.print();
-		generator.close();
-	}
+	$(function () {
+    $("#btnPrint").click(function () {
+        var contents = $("#printqrcode").html();
+        var frame1 = $('<iframe />');
+        frame1[0].name = "frame1";
+        frame1.css({ "position": "absolute", "top": "-1000000px" });
+        $("body").append(frame1);
+        var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+        frameDoc.document.open();
+        //Create a new HTML document.
+        frameDoc.document.write('<html><head><title>DIV Contents</title>');
+        frameDoc.document.write('</head><body>');
+        //Append the external CSS file.
+        frameDoc.document.write('<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />');
+        //Append the DIV contents.
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            frame1.remove();
+        }, 500);
+    });
+});
 </script>
 
 <body> 
@@ -85,11 +103,12 @@ $type = $_POST['type'];
 		 <input class="form-control" type="int" name="size" value = 150 id="size"></input><br><br>
 		 <input type="hidden" name="data" value="<?= base64_encode(serialize($array)); ?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
-     <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
-		 <button style="cursor:pointer;" class="btn btn-success btn-block" href="#" id="print" onclick="javascript:printlayer('printqrcode')">Print</button>
+     	 <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
+     	 <input style="cursor:pointer;" class="btn btn-success btn-block" type="button" id="btnPrint" value="Print" />
   		</form>
   		</ul> 
 	</div>
+	
 
 
 	<div class="col-80">
@@ -138,7 +157,7 @@ $type = $_POST['type'];
 		$img = $qr->qrCode();
     echo '<div class="row">';
 		for($i = 1 ; $i <= $qrcode ; $i++){
-      echo '<div class="card">';
+      echo '<div class="card" id="printqrcode">';
       echo '<a class="text-center">'.$place.'</a>';
 		  echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
       echo '<a class="text-center">วันหมดอายุของสินค้า<br></a>';
