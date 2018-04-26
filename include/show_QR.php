@@ -16,43 +16,6 @@
   <link href="../css/sb-admin.css" rel="stylesheet">
   <link href="../css/tracking.css" rel="stylesheet">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<style type="text/css">
-body {
-  background: rgb(204,204,204); 
-}
-page {
-  background: white;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-}
-page[size="A4"] {  
-  width: 21cm;
-  height: 29.7cm; 
-}
-@media print {
-  body, page {
-    margin: 0;
-    box-shadow: 0;
-  }
-}
-
-.col-20{
-  float: left;
-  width: 18%; 
-  margin-top: 8%;
-  margin-left:4%;
-}
-
-.col-80{
-  float: left;
-  width: 78%;
-  margin-top: 2%; 
-}
-
-
-</style>
 </head>
 
 
@@ -62,7 +25,7 @@ page[size="A4"] {
         var contents = $("#printqrcode").html();
         var frame1 = $('<iframe />');
         frame1[0].name = "frame1";
-        frame1.css({ "position": "absolute", "top": "-1000000px" });
+        frame1.css({ "position": "relative", "top": "-1000000px"});
         $("body").append(frame1);
         var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
         frameDoc.document.open();
@@ -82,6 +45,7 @@ page[size="A4"] {
         }, 500);
     });
 });
+
 </script>
 
 <body> 
@@ -89,31 +53,79 @@ page[size="A4"] {
 $array =  unserialize(base64_decode($_POST['data']));
 $type = $_POST['type']; 
 ?>
-
-	<div class="col-20">
-   	    <form action="" method="post">
+<div class="container-fluid" style="margin-top: 30px;">
+<div class="row">
+	<div class="col">
+	  <form action="" method="post">
       <ol style="background-color:#8FBC8F;" class="breadcrumb">
         <h5 align="center">พิมพ์ QR CODE</h5>
       </ol>	    	
 
         <ul>
-	  	<li><label><strong>จำนวน QR Code ที่ต้องการ</strong></label></li><br>
-		 <input class="form-control" type="int" name="qrcode" value = 25 id="qrcode"></input><br>
-	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ</strong></label></li><br>
-		 <input class="form-control" type="int" name="size" value = 150 id="size"></input><br><br>
+	  	<li><label><strong>จำนวน QR Code ที่ต้องการ(ชิ้น)</strong></label></li><br>
+		 <input class="form-control" type="text" name="qrcode"  value="<?php 
+		 if(!isset($_POST['qrcode'])){
+		 	$qrcode = 25;
+		 	echo '25';
+		 }else{
+		 echo htmlspecialchars($_POST['qrcode']); 
+		 }?>"></input><br>
+	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ(พิกเซล)</strong></label></li><br>
+		 <input class="form-control" type="text" name="size"   value="<?php 
+		 if(!isset($_POST['qrcode'])){
+		 	$size = 130;
+		 	echo '130';
+		 }else{
+		 echo htmlspecialchars($_POST['size']); 
+		 } ?>"></input><br><br>
 		 <input type="hidden" name="data" value="<?= base64_encode(serialize($array)); ?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
-     	 <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
-     	 <input style="cursor:pointer;" class="btn btn-success btn-block" type="button" id="btnPrint" value="Print" />
-  		</form>
+		 <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
+     	 <input style="cursor:pointer;" class="btn btn-success btn-block" type="button" id="btnPrint" value="Print" mt-5>
   		</ul> 
+  	</form>
 	</div>
+	<div class="col-8">
+		<div class="card">
+			<div class="card-header">
+				สินค้าที่ใช้กับ QR Code นี้
+			</div>
+			<div class="card-body">
+				<table class="table">
+				<?php if($type == "farmer"){?>
+					<thead>
+					<th>ชื่อสินค้า : <?php echo $array['ap_name']; ?></th>
+					</thead>
+					<thead>
+					<th>วันที่เก็บ : <?php $date = date_create($array['ap_collectdate']); echo $date->format('d/m/Y'); ?></th>
+					</thead>
+					<thead>
+					<th>แปลงที่เก็บ : <?php echo $array['ap_garden']; ?></th>
+					</thead>
+				 <?php 
+				}elseif($type == "seller"){ ?>
+					<thead>
+					<th>ชื่อสินค้า : <?php $product = $_POST['product']; echo $product; ?></th>
+					</thead>
+					<thead>
+					<th>ส่งมาจาก : <?php $sender = $_POST['sender']; echo $sender; ?></th>
+					</thead>
+					<thead>
+					<th>วันที่รับสินค้า : <?php $date = date_create($array['recievedate']); echo $date->format('d/m/Y H:i:s'); ?></th>
+					</thead>
+				<?php } ?>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
 	
 
 
-	<div class="col-80">
-		<page size="A4" id="printqrcode">
-		<?php
+	
+		
+	<?php
 		// include QR_BarCode class 
 		include ("QR_BarCode.php"); 
 
@@ -135,7 +147,7 @@ $type = $_POST['type'];
       $exp = date_create($array['ap_expdate']);
       $exp = $exp->format('d/m/Y');
 
-		}elseif($type == "seller"){
+	}elseif($type == "seller"){
       $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
       $findplace = $con->query("SELECT * 
                                 FROM seller_place  
@@ -149,24 +161,27 @@ $type = $_POST['type'];
       $exp = date_create($getexp['p_exp']);
       $exp = $exp->format('d/m/Y');
     }
+    ?>
 
+	<div class="container d-none" id="printqrcode">
+	<?php
 		// display QR code image
-		$qrcode = $_POST['qrcode'];
-		$size = $_POST['size'];
 		$qr->size($size);
 		$img = $qr->qrCode();
-    echo '<div class="row">';
+	  
+	  echo '<div class="row" style="margin-left:5px;">';
 		for($i = 1 ; $i <= $qrcode ; $i++){
-      echo '<div class="card" id="printqrcode">';
+      echo '<div class="card" style="border-width: 2px;">';
       echo '<a class="text-center">'.$place.'</a>';
-		  echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
+	  echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
       echo '<a class="text-center">วันหมดอายุของสินค้า<br></a>';
       echo '<a class="text-center">'.$exp.'</a>';
       echo '</div>';
 		}
-     echo '</div>';
-		?>
-		</page>
+      echo '</div>';
+     
+	?>
+		
   	</div>
 
 </body>

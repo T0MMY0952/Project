@@ -70,6 +70,14 @@ function qrcode(id) {
                         
                     ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
+                        <td><div align="center">
+                        <form action="./include/show_QR.php" method="post" target="_blank">
+                        <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
+                        <INPUT TYPE="hidden" NAME="product" VALUE="<?php echo $getproduct['p_name']; ?>">
+                        <INPUT TYPE="hidden" NAME="sender" VALUE="<?php echo $getfac['factoryname']; ?>">
+                        <INPUT TYPE="hidden" NAME="type" VALUE="seller">
+                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                        </form></a></div></td>
                     <?php 
 
                       }elseif(!is_null($row['idfarmer_send'])){
@@ -91,15 +99,18 @@ function qrcode(id) {
                         
                     ?>
                         <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
+                        <td><div align="center">
+                        <form action="./include/show_QR.php" method="post" target="_blank">
+                        <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
+                        <INPUT TYPE="hidden" NAME="product" VALUE="<?php echo $getproduct['ap_name']; ?>">
+                        <INPUT TYPE="hidden" NAME="sender" VALUE="<?php echo $getfac['farmname']; ?>">
+                        <INPUT TYPE="hidden" NAME="type" VALUE="seller">
+                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                        </form></a></div></td>
                     <?php
                       }
                     ?>
-                    <td><div align="center">
-                      <form action="./include/show_QR.php" method="post" target="_blank">
-                      <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
-                      <INPUT TYPE="hidden" NAME="type" VALUE="seller">
-                      <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="icon/Print.png" widht="34px" height="34px"></button>
-                    </form></a></div></td>
+                    
                 </tr>
                 <?php 
                 $n = $n+1;
