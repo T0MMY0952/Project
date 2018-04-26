@@ -68,6 +68,7 @@ $type = $_POST['type'];
 		 	$qrcode = 25;
 		 	echo '25';
 		 }else{
+		 	$qrcode = $_POST['qrcode'];
 		 echo htmlspecialchars($_POST['qrcode']); 
 		 }?>"></input><br>
 	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ(พิกเซล)</strong></label></li><br>
@@ -76,6 +77,7 @@ $type = $_POST['type'];
 		 	$size = 130;
 		 	echo '130';
 		 }else{
+		 	$size = $_POST['size'];
 		 echo htmlspecialchars($_POST['size']); 
 		 } ?>"></input><br><br>
 		 <input type="hidden" name="data" value="<?= base64_encode(serialize($array)); ?>" />
