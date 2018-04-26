@@ -48,7 +48,6 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $row['ap_name']; ?></div></td>
                     <?php 
                     	$date = new DateTime($row['ap_collectdate']);
-                    	$date->modify('+543 Year');
                     ?>
                     <td><div align="center"><?php echo $date->format('d/m/Y'); ?></div></td>
                     <td><div align="center"><?php echo $row['ap_garden']; ?></div></td>
@@ -71,16 +70,16 @@ $(document).ready(function(){
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
                     <?php
                     if($row['status'] == 0){?>
-                    	<td><div align="center"><?php echo '<img widht="30px" height="30px" src="icon/Wait.png">'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="icon/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
+                    	<td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
+                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
                         $num = $n;
                         $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
                         echo $link;
                         echo $num; 
-                      ?>"><img src="icon/Delete.png" widht="24px" height="24px"></a></div></td>
+                      ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <?php
             		    }elseif ($row['status'] == 1) {?>
-            			   <td><div align="center"><?php echo '<img widht="24px" height="24px" src="icon/Complete.png">'; ?></div></td>
+            			   <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
                      <td><div align="center"></div></td>
             		    <?php
             		    }
