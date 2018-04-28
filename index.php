@@ -137,6 +137,9 @@ echo '<div class="container" style="margin-top: 80px; margin-bottom:60px">';
 	if(isset($_GET['action']) && $_GET['action'] == "register"){
 		include("include/register_form.php");
 		}
+	else if (isset($_GET['action']) == "forgetmailform") {
+		include("include/forgetmailform.php");
+	}
 	else{
 		include("include/panel_home.php");
 		}
