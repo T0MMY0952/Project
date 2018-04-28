@@ -46,6 +46,27 @@
     });
 });
 
+function selectqrcode() {
+    var x = document.getElementById("size").value;
+	    if(x == 90){
+	    var qrcode = 30;
+		}
+		if(x == 130){
+	    var qrcode = 25;
+		}
+		if(x == 175){
+	    var qrcode = 16;
+		}
+    	document.getElementById("showqr").innerHTML = "จำนวนที่มากที่สุด : "+ qrcode+ " ชิ้น";
+    	document.getElementById("qrcode").setAttribute("max", qrcode); 
+}
+function checkvalue() {
+	var i1 = document.printqrcode.size.value;
+	if(i1 == 0){
+		alert("กรุณาเลือกขนาดที่ต้องการ");
+	}
+}
+    
 </script>
 
 <body> 
@@ -56,31 +77,35 @@ $type = $_POST['type'];
 <div class="container-fluid" style="margin-top: 30px;">
 <div class="row">
 	<div class="col">
-	  <form action="" method="post">
+	  <form action="" method="post" name="printqrcode" onsubmit="checkvalue()">
       <ol style="background-color:#8FBC8F;" class="breadcrumb">
         <h5 align="center">พิมพ์ QR CODE</h5>
       </ol>	    	
 
         <ul>
+        <li><label><strong><td>ขนาด QR Code ที่ต้องการ(พิกเซล)</strong></label></li><br>
+		 <select class="form-control" name="size" id="size" onchange="selectqrcode()">
+		 	<?php 
+		 		if(!isset($_POST['size'])){
+		 			$_POST['size'] = '0';
+		 		}
+		 	?>
+		 	<option value = "0">เลือกขนาดที่ต้องการ</option>
+		    <option value="90"  
+             <?php if($_POST['size'] == '90'){echo 'selected="selected""';}?> >90 (เล็ก)</option>
+		    <option value="130"
+		     <?php if($_POST['size'] == '130'){echo 'selected="selected""';}?>>130 (กลาง)</option>
+		    <option value="175"
+		     <?php if($_POST['size'] == '175'){echo 'selected="selected""';}?>>175 (ใหญ่)</option>
+		 </select>
+  		<br>
 	  	<li><label><strong>จำนวน QR Code ที่ต้องการ(ชิ้น)</strong></label></li><br>
-		 <input class="form-control" type="text" name="qrcode"  value="<?php 
-		 if(!isset($_POST['qrcode'])){
-		 	$qrcode = 25;
-		 	echo '25';
-		 }else{
-		 	$qrcode = $_POST['qrcode'];
-		 echo htmlspecialchars($_POST['qrcode']); 
-		 }?>"></input><br>
-	  	<li><label><strong><td>ขนาด QR Code ที่ต้องการ(พิกเซล)</strong></label></li><br>
-		 <input class="form-control" type="text" name="size"   value="<?php 
-		 if(!isset($_POST['qrcode'])){
-		 	$size = 130;
-		 	echo '130';
-		 }else{
-		 	$size = $_POST['size'];
-		 echo htmlspecialchars($_POST['size']); 
-		 } ?>"></input><br><br>
+	  	 <p id="showqr"></p><br>
+		 <input type="number" class="form-control" id="qrcode" name="qrcode" min="1" placeholder="ใส่จำนวนที่ต้องการ"
+		  value="<?php if(isset($_POST['qrcode'])){echo $_POST['qrcode']; } ?>"></select><br><br>
 		 <input type="hidden" name="data" value="<?= base64_encode(serialize($array)); ?>" />
+		 <input type="hidden" name="product" value="<?php echo $_POST['product']; ?>" />
+		 <input type="hidden" name="sender" value="<?php echo $_POST['sender'];?>" />
 		 <input type="hidden" name="type" value="<?php echo $type; ?>" />
 		 <button style="cursor:pointer;" class="btn btn-success btn-block" mt-5>ตกลง</button>
      	 <input style="cursor:pointer;" class="btn btn-success btn-block" type="button" id="btnPrint" value="Print" mt-5>
@@ -128,64 +153,74 @@ $type = $_POST['type'];
 	
 		
 	<?php
+	if(isset($_POST['size']) && isset($_POST['qrcode'])){
 		// include QR_BarCode class 
 		include ("QR_BarCode.php"); 
 
 		// QR_BarCode object 
 		$qr = new QR_BarCode(); 
 
-    // include connect
-    require_once('../connect/connect.php');
+    	// include connect
+		require_once('../connect/connect.php');
 
-		// create text QR code 
-    if($type == "farmer"){
-      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$array['idagriculture_product']);
-      $findplace = $con->query("SELECT * 
-                                FROM farm_place AS fp 
-                                LEFT JOIN farmer AS f ON fp.idfarm_place = f.idfarm_place  
-                                WHERE f.idfarmer = '".$array['idfarmer']."'") or die (mysqli_error($con));
-      $getplace = $findplace->fetch_assoc();
-      $place = $getplace['farmname'];
-      $exp = date_create($array['ap_expdate']);
-      $exp = $exp->format('d/m/Y');
+				// create text QR code 
+		    if($type == "farmer"){
+		      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$array['idagriculture_product']);
+		      $findplace = $con->query("SELECT * 
+		                                FROM farm_place AS fp 
+		                                LEFT JOIN farmer AS f ON fp.idfarm_place = f.idfarm_place  
+		                                WHERE f.idfarmer = '".$array['idfarmer']."'") or die (mysqli_error($con));
+		      $getplace = $findplace->fetch_assoc();
+		      $place = $getplace['farmname'];
+		      $exp = date_create($array['ap_expdate']);
+		      $exp = $exp->format('d/m/Y');
 
-	}elseif($type == "seller"){
-      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
-      $findplace = $con->query("SELECT * 
-                                FROM seller_place  
-                                WHERE idseller_place = '".$array['idseller_recieve']."'") or die (mysqli_error($con));
-      $getplace = $findplace->fetch_assoc();
-      $place = $getplace['sellername'];
-      $findexp = $con->query("SELECT * 
-                                FROM product  
-                                WHERE idproduct = '".$array['idproduct']."'") or die (mysqli_error($con));
-      $getexp = $findexp->fetch_assoc();
-      $exp = date_create($getexp['p_exp']);
-      $exp = $exp->format('d/m/Y');
-    }
-    ?>
+			}elseif($type == "seller"){
+		      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
+		      $findplace = $con->query("SELECT * 
+		                                FROM seller_place  
+		                                WHERE idseller_place = '".$array['idseller_recieve']."'") or die (mysqli_error($con));
+		      $getplace = $findplace->fetch_assoc();
+		      $place = $getplace['sellername'];
+		      $findexp = $con->query("SELECT * 
+		                                FROM product  
+		                                WHERE idproduct = '".$array['idproduct']."'") or die (mysqli_error($con));
+		      $getexp = $findexp->fetch_assoc();
+		      $exp = date_create($getexp['p_exp']);
+		      $exp = $exp->format('d/m/Y');
+		    }
+		 	?>
 
-	<div class="container d-none" id="printqrcode">
-	<?php
-		// display QR code image
-		$qr->size($size);
-		$img = $qr->qrCode();
-	  
-	  echo '<div class="row" style="margin-left:5px;">';
-		for($i = 1 ; $i <= $qrcode ; $i++){
-      echo '<div class="card" style="border-width: 2px;">';
-      echo '<a class="text-center">'.$place.'</a>';
-	  echo '<img src="data:image/png;base64,' . base64_encode($img) . '">';
-      echo '<a class="text-center">วันหมดอายุของสินค้า<br></a>';
-      echo '<a class="text-center">'.$exp.'</a>';
-      echo '</div>';
+			<div class="container d-none" id="printqrcode" >
+			<?php
+				// display QR code image
+			    $size = $_POST['size'];
+			    $qrcode = $_POST['qrcode'];
+				$qr->size($size);
+				$img = $qr->qrCode();
+			?>
+			  
+			 <div class="row" style="margin-left:5px;">
+			 <?php
+				for($i = 1 ; $i <= $qrcode ; $i++){
+			 ?>
+		      	<div class="card" style="border-width: 2px;">
+		      	<a class="text-center"><?php echo $place;?></a>
+		      <?php
+			  echo '<img src="data:image/png;base64,' . base64_encode($img) . '" width="'.$size.'" height="'.$size.'" style="margin:0 auto;">';
+			  ?>
+		       <a class="text-center">วันหมดอายุของสินค้า</a>
+		       <a class="text-center"><?php echo $exp;?></a>
+		       </div>
+		       <?php
+				}
+				?>
+		      </div>
+				
+		  	</div>
+		<?php
 		}
-      echo '</div>';
-     
-	?>
-		
-  	</div>
-
+		?>
 </body>
 
 <!-- /.container-fluid-->
