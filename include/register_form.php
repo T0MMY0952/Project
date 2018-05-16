@@ -6,14 +6,16 @@
     }
 </style>
 <script type="text/javascript">
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-
-  var loadFile1 = function(event) {
-    var output = document.getElementById('output1');
-    output.src = URL.createObjectURL(event.target.files[0]);
+  function loadFile(file,num) {
+    var output = document.getElementById('output'+num);
+    var FileSize = file.files[0].size / 1024 / 1024; // in MB
+        if (FileSize > 2) {
+            alert('ไฟล์มีขนาดใหญ่กว่า 2 MB กรุณาเลือกไฟล์ใหม่');
+            window.URL.revokeObjectURL(output);
+            $(file).val('');
+        }else{
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
   };
 </script>
   
@@ -82,17 +84,17 @@
 
           <div class="form-group col-md-8">
              <label ><a style="color:red;">*</a>รูปภาพบุคคล</label>
-               <input name="peoplepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(event)" >
+               <input name="peoplepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,1)" >
                <div class="wrapper">
-                <p><p><img class="img-responsive"  id="output"/><p>
+                <p><p><img class="img-responsive"  id="output1"/><p>
                </div>
           </div> 
 			     
           <div class="form-group col-md-8">
              <label >รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
-               <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile1(event)"">
+               <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,2)"">
                <div class="wrapper">
-                <p><p><img class="img-responsive" id="output1"/><p>
+                <p><p><img class="img-responsive" id="output2"/><p>
                </div>
           </div> 
           <div class="form-row">
