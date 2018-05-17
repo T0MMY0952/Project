@@ -37,14 +37,16 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
 </style>
 
 <script type="text/javascript">
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-
-  var loadFile1 = function(event) {
-    var output = document.getElementById('output1');
-    output.src = URL.createObjectURL(event.target.files[0]);
+  function loadFile(file,num) {
+    var output = document.getElementById('output'+num);
+    var FileSize = file.files[0].size / 1024 / 1024; // in MB
+        if (FileSize > 2) {
+            alert('ไฟล์มีขนาดใหญ่กว่า 2 MB กรุณาเลือกไฟล์ใหม่');
+            window.URL.revokeObjectURL(output);
+            $(file).val('');
+        }else{
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
   };
 </script>
   
@@ -114,17 +116,17 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
 
           <div class="form-group col-md-8">
              <label for="exampleInputAddress">รูปภาพบุคคล</label>
-               <input name="peoplepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(event)" >
+               <input name="peoplepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,1)" >
                <div class="wrapper">
-                <p><p><?php echo "<img src='images/".$result["{$people}pic"]."'" ?> class="img-responsive"  id="output"/><p>
+                <p><p><?php echo "<img src='images/".$result["{$people}pic"]."'" ?> class="img-responsive"  id="output1"/><p>
                </div>
           </div> 
 			     
           <div class="form-group col-md-8">
              <label for="exampleInputAddress">รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
-               <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile1(event)"" >
+               <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,2)" >
                <div class="wrapper">
-                <p><p><?php echo "<img src='images/".$result["{$sub}pic"]."'" ?> class="img-responsive"  id="output1"/><p>
+                <p><p><?php echo "<img src='images/".$result["{$sub}pic"]."'" ?> class="img-responsive"  id="output2"/><p>
                </div>
           </div> 
           <div class="form-row">
