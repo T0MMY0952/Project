@@ -20,9 +20,6 @@
 	else
 	{
 			
-			//*** Update Status Login
-			$sql = "UPDATE user_account SET  lastupdate = NOW() WHERE iduser_account = '".$objResult["iduser_account"]."' ";
-			$query = mysqli_query($con,$sql) or die (mysqli_error());
 
 			//*** Session
 			$_SESSION["iduser_account"] = $objResult["iduser_account"];
