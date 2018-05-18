@@ -62,7 +62,7 @@
               <div class="col-md-6">
                 <label for="basic"><a style="color: red;">*</a>สถานที่ที่จัดส่ง</label>
                 <select id="basic" class="selectpicker show-tick form-control" data-live-search="true" name="idrecieve" >
-                    <option>เลือกสถานที่จัดส่ง</option>
+                    <option value="0">เลือกสถานที่จัดส่ง</option>
                     <optgroup label="โรงงาน">
                     <?php
                       $id = $_SESSION['iduser_account'];

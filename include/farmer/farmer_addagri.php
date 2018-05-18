@@ -79,7 +79,7 @@ $(function() {
             <div class="form-group col-md-6">
                 <label for="basic"><a style="color: red;">*</a>โรงงานที่จัดส่ง</label>
                 <select id="basic" class="selectpicker show-tick form-control" data-live-search="true" name="idsend" >
-                    <option>เลือกสถานที่จัดส่ง</option>
+                    <option value="0">เลือกสถานที่จัดส่ง</option>
                     <optgroup label="โรงงาน">
                     <?php
                       require_once("./connect/connect.php");

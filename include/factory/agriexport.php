@@ -15,7 +15,7 @@ $get_expdate = $_POST['expdate'];
 $p_exportdate = date('Y-m-d H:i:s'); 
 $idsendto = $_POST['idrecieve'];
 
-if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || empty($mfd) || empty($idsendto) || empty($p_exportdate) || empty($get_expdate)){
+if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || empty($mfd) || $idsendto == '0' || empty($p_exportdate) || empty($get_expdate)){
 	echo '<script type="text/javascript" >
 			alert("กรอกข้อมูลไม่ครบ");
 			window.location.href = "javascript:history.back()";
