@@ -88,7 +88,12 @@ $('#comment').on('show.bs.modal', function(e) {
             		    <?php
             		    }elseif ($row['status'] == 2){?>
                      <td><div align="center"><a data-toggle="modal" data-id="<?php echo $row['comment']; ?>"class="open-my_modal" href="#my_modal" ><?php echo '<img widht="24px" height="24px" src="images/cross.png">'; ?></a></div></td>
-                     <td><div align="center"></div></td>
+                      <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
+                        $num = $n;
+                        $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
+                        echo $link;
+                        echo $num; 
+                      ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <?php
                     }
                     ?>
@@ -101,12 +106,11 @@ $('#comment').on('show.bs.modal', function(e) {
     ?>
 
 <script type="text/javascript">
- $(document).on("click", ".open-my_modal", function () {
+$(document).on("click", ".open-my_modal", function () {
      var myBookId = $(this).data('id');
      document.getElementById("bookId").innerHTML = myBookId;
 });
 </script>
-
 <div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

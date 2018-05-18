@@ -22,12 +22,14 @@ if(empty($ap_name) || empty($ap_collectdate)  || empty($ap_amount) || empty($ap_
 			  	</script>';
 }else{
 		if(substr($idsendto, 0, 1) == 's'){
-			$sql2 = "UPDATE shipment SET idseller_recieve = '".substr($idsendto, 1)."', idfactory_recieve = NULL, exportdate = '$ap_exportdate'  
+			$sql2 = "UPDATE shipment SET idseller_recieve = '".substr($idsendto, 1)."', idfactory_recieve = NULL, 
+					 exportdate = '$ap_exportdate', status = '0', comment = NULL 
 					 WHERE idshipment = $idapr ";
 			$result2 = $con->Query($sql2) or die(mysqli_error($con));
 			
 		}else{
-			$sql2 = "UPDATE shipment SET idfactory_recieve = $idsendto, idseller_recieve = NULL , exportdate = '$ap_exportdate' 
+			$sql2 = "UPDATE shipment SET idfactory_recieve = $idsendto, idseller_recieve = NULL , exportdate = '$ap_exportdate'
+					 , status = '0', comment = NULL  
 					 WHERE idshipment = $idapr ";
 			$result2 = $con->Query($sql2) or die(mysqli_error($con));
 			

@@ -20,12 +20,14 @@ if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || 
 		  </script>';
 }else{
 	if(substr($idsendto, 0, 1) == 's'){
-			$sql2 = "UPDATE shipment SET idseller_recieve = '".substr($idsendto, 1)."', idfactory_recieve = NULL, exportdate = '$p_exportdate'  
+			$sql2 = "UPDATE shipment SET idseller_recieve = '".substr($idsendto, 1)."', idfactory_recieve = NULL, 
+					 exportdate = '$p_exportdate' , status = '0', comment = NULL 
 					 WHERE idshipment = $id ";
 			$result2 = $con->Query($sql2) or die(mysqli_error($con));
 			
 		}else{
-			$sql2 = "UPDATE shipment SET idfactory_recieve = $idsendto, idseller_recieve = NULL , exportdate = '$p_exportdate' 
+			$sql2 = "UPDATE shipment SET idfactory_recieve = $idsendto, idseller_recieve = NULL , exportdate = '$p_exportdate'
+					 , status = '0', comment = NULL  
 					 WHERE idshipment = $id ";
 			$result2 = $con->Query($sql2) or die(mysqli_error($con));
 			
