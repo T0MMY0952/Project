@@ -114,6 +114,18 @@ $row = $result->fetch_assoc();
     $("#reject").modal("show");
   });
 })
+  function ChkValid() {
+   var v1 = document.check.comment.value;
+   if (v1.length<=0)
+      {
+      alert("กรุณาระบุเหตุผลที่ไม่รับสินค้า");
+      return false;
+      }
+  else
+    {
+    return true;
+    }
+}
 </script>
 <div class="modal fade" tabindex="-1" role="dialog" id="reject">
   <div class="modal-dialog" role="document">
