@@ -2,9 +2,6 @@
 function edit(id) {
     var myWindow = window.open("./include/factory/factory_showedit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
-function qrcode(id) {
-    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
-}
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
@@ -71,33 +68,37 @@ $(document).ready(function(){
 
                     <?php 
                       if($row['status'] == 1){?>
-                          <td><div align="center"><?php echo '<img widht="24px" height="24px" src="icon/Complete.png">'; ?></div></td>
+                          <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
                           <td><div align="center"></div></td>
                       <?php
                       }elseif($row['status'] == 0){?>
-                          <td><div align="center"><?php echo '<img widht="30px" height="30px" src="icon/Wait.png">'; ?></div></td>
+                          <td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
                           <?php if(!is_null($row['idfarmer_send'])){ ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="icon/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
                                       $num = $n;
                                       $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
                                       echo $link;
                                       echo $num; 
-                                  ?>"><img src="icon/Delete.png" widht="24px" height="24px"></a></div></td>
+                                  ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                           <?php 
                           }elseif(!is_null($row['idfactory_send'])) { ?>
-                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="icon/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
                                       $num = $n;
                                       $link = 'include/factory/deleteproduct.php?id='.$row['idshipment']; 
                                       echo $link;
                                       echo $num; 
-                                  ?>"><img src="icon/Delete.png" widht="24px" height="24px"></a></div></td>
+                                  ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                           <?php
-                        }
-                    }
+                          }
+                      }elseif ($row['status'] == 2){?>
+                           <td><div align="center"><a data-toggle="modal" data-id="<?php echo $row['comment']; ?>"class="open-my_modal" href="#my_modal" ><?php echo '<img widht="24px" height="24px" src="images/cross.png">'; ?></a></div></td>
+                           <td><div align="center"></div></td>
+                    <?php
+                      }
                     ?>
                 </tr>
                 <?php $n = $n+1; } ?>
@@ -106,6 +107,32 @@ $(document).ready(function(){
     <?php
       include('./include/deleteconfirm.php');
     ?>
+<script type="text/javascript">
+ $(document).on("click", ".open-my_modal", function () {
+     var myBookId = $(this).data('id');
+     document.getElementById("bookId").innerHTML = myBookId;
+});
+</script>
+<div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a>เหตุผลที่ไม่รับสินค้า</a>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="cursor:pointer;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="rejectfromfac.php">
+        <div class="form-group">
+          <a name="bookId" id="bookId" value=""/></a>
+        </div>
+        <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ปิด</a></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
