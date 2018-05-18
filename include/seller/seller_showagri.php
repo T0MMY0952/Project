@@ -118,13 +118,43 @@ $row = $result->fetch_assoc();
           </div>
             <div class="form-row">
               <div class="col-xs-6 col-sm-6 col-md-6">
-              <button class="btn btn-success btn-block" type="submit" mt-5>ตกลง</buttton>
+              <button class="btn btn-success btn-block" type="submit" mt-5>รับสินค้า</buttton>
               </div>
               <div class="col-xs-6 col-sm-6 col-md-6">
-              <a class="btn btn-danger btn-block" href="javascript:window.open('','_self').close();" mt-5>ยกเลิก</a>
-            </div>
+                <a class="btn btn-danger btn-block reject" href="#reject" mt-5>ไม่รับสินค้า</a>
+              </div>
             </form>
          </div>
       </div>
+<script type="text/javascript">
+        $(document).ready(function(){
+        $(".reject").click(function(){
+        $("#reject").modal("show");
+  });
+})
+</script>
+<div class="modal fade" tabindex="-1" role="dialog" id="reject">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="cursor:pointer;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="rejectproduct.php">
+      <div class="form-group">
+        <label for="exampleInputEmail1">เหตุผลที่ไม่รับสินค้า</label>
+        <textarea name="comment" rows="3" cols="63"></textarea>
+        <input type="text" name="idshow" hidden="hidden" value="<?php echo $idshow; ?>">
+      </div>
+  <button style="cursor:pointer;" type="submit" class="btn btn-success">ตกลง</button>
+  <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ยกเลิก</a></button>
+</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
 </body>
     

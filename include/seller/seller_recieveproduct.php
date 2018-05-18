@@ -31,7 +31,7 @@ function recieveagri(id) {
                 $getid_sel = $findid_sel->fetch_assoc();
                 $sql = "SELECT *
                         FROM shipment 
-                        WHERE idseller_recieve = '".$getid_sel['idseller_place']."' AND status != 1";
+                        WHERE idseller_recieve = '".$getid_sel['idseller_place']."' AND status != 1 AND status != 2";
                 $result = $con->query($sql) or die (mysqli_error($con));
                 $n = 1;
                 while($row = $result->fetch_assoc()){
@@ -52,11 +52,11 @@ function recieveagri(id) {
                         echo '<td><div align="center">'; echo $date->format('d/m/Y H:i:s'); echo '</div></td>';
                         echo '<td><div align="center"><a onclick="recieveproduct(';echo $row['idshipment']; echo ')" href="">รับสินค้า</a></div></td>';
                       }elseif(!is_null($row['idfarmer_send'])){
-                        $findagri = $con->query("SELECT ap_name, ap_amount, ap_unit, ap_exportdate FROM agriculture_product WHERE idagriculture_product = '".$row['idagriculture_product']."' ") or die (mysqli_error($con));
+                        $findagri = $con->query("SELECT ap_name, ap_amount, ap_unit FROM agriculture_product WHERE idagriculture_product = '".$row['idagriculture_product']."' ") or die (mysqli_error($con));
                         $getagri = $findagri->fetch_assoc(); 
                         echo '<td><div align="center">'; echo $getagri['ap_name']; echo '</div></td>';
                         echo '<td><div align="center">'; echo $getagri['ap_amount']; echo '&nbsp'; echo $getagri['ap_unit']; echo '</div></td>';
-                        $date = new DateTime($getagri['ap_exportdate']);
+                        $date = new DateTime($row['exportdate']);
                         
                         $findfac = $con->query("SELECT farmername, farmersurname FROM farmer WHERE idfarmer = '".$row['idfarmer_send']."'");
                         $getfac = $findfac->fetch_assoc();
