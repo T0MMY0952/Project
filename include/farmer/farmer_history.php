@@ -7,6 +7,10 @@ $(document).ready(function(){
     $("#delete").modal("show");
   });
 })
+$('#comment').on('show.bs.modal', function(e) {
+    var bookId = $(e.relatedTarget).data('book-id');
+    $(e.currentTarget).find('input[name="bookId"]').val(bookId);
+});
 </script>
 <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -33,7 +37,7 @@ $(document).ready(function(){
                 <?php
                 require_once("./connect/connect.php");
                 $sql = "SELECT s.idshipment, ap.ap_name, ap.ap_collectdate, ap.ap_garden, s.idfactory_recieve,s.status,ap.ap_amount, ap.ap_unit,
-                        s.idseller_recieve,s.exportdate,ap.ap_price
+                        s.idseller_recieve,s.exportdate,ap.ap_price,s.comment
 						            FROM shipment as s 
                         LEFT JOIN agriculture_product as ap on s.idagriculture_product = ap.idagriculture_product
 						            WHERE s.idfarmer_send = '".$_SESSION['idfarmer']."' 
@@ -82,7 +86,11 @@ $(document).ready(function(){
             			   <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
                      <td><div align="center"></div></td>
             		    <?php
-            		    }
+            		    }elseif ($row['status'] == 2){?>
+                     <td><div align="center"><a data-toggle="modal" data-id="<?php echo $row['comment']; ?>"class="open-my_modal" href="#my_modal" ><?php echo '<img widht="24px" height="24px" src="images/cross.png">'; ?></a></div></td>
+                     <td><div align="center"></div></td>
+                    <?php
+                    }
                     ?>
                 </tr>
                 <?php $n = $n+1; } ?>
@@ -91,6 +99,34 @@ $(document).ready(function(){
     <?php
       include('./include/deleteconfirm.php');
     ?>
+
+<script type="text/javascript">
+ $(document).on("click", ".open-my_modal", function () {
+     var myBookId = $(this).data('id');
+     document.getElementById("bookId").innerHTML = myBookId;
+});
+</script>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="my_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a>เหตุผลที่ไม่รับสินค้า</a>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="cursor:pointer;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="rejectfromfac.php">
+        <div class="form-group">
+          <a name="bookId" id="bookId" value=""/></a>
+        </div>
+        <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ปิด</a></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

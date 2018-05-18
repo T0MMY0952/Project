@@ -2,9 +2,6 @@
 function editagritosell(idapr) {
     var myWindow = window.open("./include/farmer/farmer_updateagritosell.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
-function qrcode(id) {
-    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=farmer", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=500");  
-}
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
