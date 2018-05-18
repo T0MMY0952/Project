@@ -4,9 +4,9 @@ require_once("../../connect/connect.php");
 session_start();
 date_default_timezone_set("Asia/Bangkok");
 $recievedate = date('Y-m-d H:i:s'); 
-$id = $_SESSION['iduser_account'];
-$idapr = $_GET['idshow'];
-$updateshipment = "UPDATE shipment as s  SET status = '1', recievedate =  '".$recievedate."' WHERE s.idshipment = $idapr " ;
+$idapr = $_POST['idshow'];
+$comment = $_POST['comment'];
+$updateshipment = "UPDATE shipment as s  SET status = '2', recievedate =  '".$recievedate."', comment = '$comment' WHERE s.idshipment = $idapr " ;
 $result1 = $con->query($updateshipment) or die (mysqli_error($con));
 
 $findwork = 
@@ -17,7 +17,7 @@ if(!$getwork){
 	$result2 = $con->query($insertwork) or die (mysqli_error($con));
 	if ($result1 && $result2){
 		echo '<script type="text/javascript" >
-				alert("รับผลผลิตเรียบร้อย");
+				alert("ไม่รับผลผลิตเรียบร้อย");
 				window.onunload = refreshParent;
 	        	function refreshParent() {
 	            window.opener.location.reload();
@@ -33,7 +33,7 @@ if(!$getwork){
 }else{
 	if ($result1){
 		echo '<script type="text/javascript" >
-				alert("รับผลผลิตเรียบร้อย");
+				alert("ไม่รับผลผลิตเรียบร้อย");
 				window.onunload = refreshParent;
 	        	function refreshParent() {
 	            window.opener.location.reload();
@@ -42,7 +42,7 @@ if(!$getwork){
 				</script>';
 	}else{
 		echo '<script type="text/javascript" >
-					alert("รับผลผลิตล้มเหลว");
+					alert("ไม่รับผลผลิตล้มเหลว");
 					window.location.href = "javascript:history.back()";
 				  	</script>';
 	}
