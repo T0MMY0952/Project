@@ -132,7 +132,9 @@ $(document).ready(function(){
         <div class="form-group">
           <a name="bookId" id="bookId" value=""/></a>
         </div>
+        <div class="modal-footer">
         <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ปิด</a></button>
+        </div>
         </form>
       </div>
     </div>
