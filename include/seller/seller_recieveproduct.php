@@ -31,7 +31,8 @@ function recieveagri(id) {
                 $getid_sel = $findid_sel->fetch_assoc();
                 $sql = "SELECT *
                         FROM shipment 
-                        WHERE idseller_recieve = '".$getid_sel['idseller_place']."' AND status != 1 AND status != 2";
+                        WHERE idseller_recieve = '".$getid_sel['idseller_place']."' AND status != 1 AND status != 2
+                        ORDER BY exportdate DESC";
                 $result = $con->query($sql) or die (mysqli_error($con));
                 $n = 1;
                 while($row = $result->fetch_assoc()){

@@ -17,7 +17,7 @@ if(!$getwork){
 	$result2 = $con->query($insertwork) or die (mysqli_error($con));
 	if ($result1 && $result2){
 		echo '<script type="text/javascript" >
-				alert("รับผลผลิตเรียบร้อย");
+				alert("รับสินค้าเรียบร้อย");
 				window.onunload = refreshParent;
 	        	function refreshParent() {
 	            window.opener.location.reload();
@@ -26,14 +26,14 @@ if(!$getwork){
 				</script>';
 	}else{
 		echo '<script type="text/javascript" >
-					alert("ไม่รับผลผลิตล้มเหลว");
+					alert("ไม่รับสินค้าล้มเหลว");
 					window.location.href = "javascript:history.back()";
 				  	</script>';
 	}
 }else{
 	if ($result1){
 		echo '<script type="text/javascript" >
-				alert("รับผลผลิตเรียบร้อย");
+				alert("รับสินค้าเรียบร้อย");
 				window.onunload = refreshParent;
 	        	function refreshParent() {
 	            window.opener.location.reload();
@@ -42,7 +42,7 @@ if(!$getwork){
 				</script>';
 	}else{
 		echo '<script type="text/javascript" >
-					alert("รับผลผลิตล้มเหลว");
+					alert("รับสินค้าล้มเหลว");
 					window.location.href = "javascript:history.back()";
 				  	</script>';
 	}
