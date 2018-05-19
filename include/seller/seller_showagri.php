@@ -33,14 +33,13 @@ $row = $result->fetch_assoc();
 <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <h3 align="center">แก้ไขการจัดส่ง&nbsp(<?php echo 'รหัสการจัดส่ง&nbsp'; echo $idshow;?>)</h3>
+        <h3 align="center">รายละเอียดสินค้า</h3>
       </ol>
          <div class="col-md-8">
-           <form method="post" action="recieveproduct.php?idshow=<?php echo $idshow?>">
-            <div class="form-group">
+          <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
-                <label for="exampleInputName">รหัสการรับสินค้า</label>
+                <label for="exampleInputName">รหัสการรับผลผลิต</label>
                 <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['idshipment'];?>">
               </div>
               <div class="col-md-6">
@@ -48,7 +47,6 @@ $row = $result->fetch_assoc();
                 <input class="form-control"  type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['farmname']; echo ' '; echo $row['farmaddress'];?>">
               </div>
           </div>
-        </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -57,7 +55,7 @@ $row = $result->fetch_assoc();
               </div>
               <div class="col-md-6">
                 <label for="exampleInputFarm">เบอร์โทรศัพท์ ผู้ส่ง</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['farmertel'];?>" >
+                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['farmertel'];?>" >
               </div>
             </div>
           </div>
@@ -65,11 +63,13 @@ $row = $result->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputFarm">ชื่อผลผลิต</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_name'];?>">
+                <input class="form-control"  type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_name'];?>">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputTel">วันที่เก็บ</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_collectdate'];?>">
+                <input class="form-control" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php 
+                $date = new DateTime($row['ap_collectdate']);
+                echo $date->format('d/m/Y');?>">
               </div>
             </div>
           </div>
@@ -77,45 +77,29 @@ $row = $result->fetch_assoc();
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputFarm">แปลงที่เก็บ</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_garden'];?>">
+                <input class="form-control"  type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_garden'];?>">
               </div>
               <div class="col-md-6">
                 <label for="exampleInputTel">จำนวน</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_amount']; echo '  '; echo $row['ap_unit']; ?>">
+                <input class="form-control"  type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['ap_amount']; echo '  '; echo $row['ap_unit']; ?>">
               </div>
             </div>
           </div>
-          <div class="form-group col-md-6">
-              <div class="form-row">
-                  <label >ราคาต่อหน่วย</label>
-                  <div class="col-sm-10">
-                    <input class="form-control " name="apr_price" type="text"  value="<?php echo $row['ap_price'];?>" placeholder="ราคาต่อหน่วยของผลผลิต"  >
-                  </div>
-                  <div class="col-sm-2">
-                    <label > บาท</label>
-                  </div>
-              </div>
-            </div>
-            <div class="form-group col-md-6">
-              <div class="form-row">
-                <label ><a style="color: red;">*</a>อายุของผลผลิต</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="apr_expdate" value="<?php echo $row['ap_expdate']; ?>" placeholder="อายุของผลผลิตนับจากวันที่เก็บ"/>
-                </div>
-                <div class="col-sm-2">
-                        <label >วัน</label>
-                </div>
-              </div>
-            </div>
           <div class="form-group">
             <div class="form-row">
-              
               <div class="col-md-6">
-                <label for="exampleInputFarm">วันที่ส่งออก</label>
-                <input class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" disabled="disabled" value="<?php echo $row['exportdate'];?>">
+                <label >วันที่หมดอายุ</label>
+                <input type="text" class="form-control" disabled="disabled" name="apr_expdate" value="<?php 
+                $date = new DateTime($row['ap_expdate']);
+                echo $date->format('d/m/Y');?>" />
+              </div>
+              <div class="col-md-6">
+                <label for="exampleInputTel">วันที่ส่งออก</label>
+                <input class="form-control" name="exportdate" type="text" value = "<?php 
+                $date = new DateTime($row['exportdate']);
+                echo $date->format('d/m/Y H:i:s');?>" disabled="disabled" />
               </div>
             </div>
-          </div>
             <div class="form-row">
               <div class="col-xs-6 col-sm-6 col-md-6">
               <button class="btn btn-success btn-block" type="submit" mt-5>รับสินค้า</buttton>
@@ -160,8 +144,10 @@ function ChkValid() {
         <textarea name="comment" rows="3" cols="63"></textarea>
         <input type="text" name="idshow" hidden="hidden" value="<?php echo $idshow; ?>">
       </div>
+      <div class="modal-footer">
   <button style="cursor:pointer;" type="submit" class="btn btn-success">ตกลง</button>
   <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ยกเลิก</a></button>
+      </div>
 </form>
       </div>
       
