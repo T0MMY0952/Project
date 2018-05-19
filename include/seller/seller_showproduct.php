@@ -34,7 +34,7 @@ $row = $result->fetch_assoc();
 <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <h3 align="center">แสดงรายละเอียด&nbsp(<?php echo 'รหัสการรับผลผลิต&nbsp'; echo $idshow;?>)</h3>
+        <h3 align="center">รายละเอียดสินค้า</h3>
       </ol>
       <div class="col-md-8">
       	<form method="post" action="recieveproduct.php?idshow=<?php echo $idshow?>">
@@ -142,8 +142,10 @@ $row = $result->fetch_assoc();
         <textarea name="comment" rows="3" cols="63"></textarea>
         <input type="text" name="idshow" hidden="hidden" value="<?php echo $idshow; ?>">
       </div>
+      <div class="modal-footer">
   <button style="cursor:pointer;" type="submit" class="btn btn-success">ตกลง</button>
   <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ยกเลิก</a></button>
+      </div>
 </form>
       </div>
       

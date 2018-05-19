@@ -91,8 +91,10 @@ $row = $result->fetch_assoc();
         <textarea name="comment" rows="3" cols="63"></textarea>
         <input type="text" name="idshow" hidden="hidden" value="<?php echo $idshow; ?>">
       </div>
+      <div class="modal-footer">
   <button style="cursor:pointer;" type="submit" class="btn btn-success">ตกลง</button>
   <button style="cursor:pointer;" class="btn btn-danger" role="close" data-dismiss="modal" aria-label="Close"><a>ยกเลิก</a></button>
+</div>
 </form>
       </div>
       
