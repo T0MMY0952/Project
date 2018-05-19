@@ -43,11 +43,12 @@
 <!------------------------------------เปิดทั้ง3tap---------------------------------------->
 <div class="tab-content" id="myTabContent">
 <?php
+  $id = $_GET['id'];
   $findinfo1 = $con->query("SELECT * 
                       FROM agriculture_product as ap       
                       LEFT JOIN farmer as f               ON ap.idfarmer = f.idfarmer 
                       LEFT JOIN farm_place as fp          ON f.idfarm_place = fp.idfarm_place 
-                      WHERE idagriculture_product = $id") or die(mysqli_error($con));
+                      WHERE idagriculture_product = $id ") or die(mysqli_error($con));
   $getinfo1 = $findinfo1->fetch_assoc();
 ?>
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -110,11 +111,11 @@
   <div class="carousel-inner">
 
     <div class="carousel-item active">
-      <?php echo "<img src='../images/".$getinfo1["farmerpic"]."'" ?> class="d-block w-100" alt="First slide">
+      <?php echo "<img src='../images/".$getinfo1['farmerpic']."'" ?> class="d-block w-100" alt="First slide">
     </div>
 
     <div class="carousel-item">
-      <?php echo "<img src='../images/".$getinfo1["farmpic"]."'" ?> class="d-block w-100" alt="Second slide">
+      <?php echo "<img src='../images/".$getinfo1['farmpic']."'" ?> class="d-block w-100" alt="Second slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
