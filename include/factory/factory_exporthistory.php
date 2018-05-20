@@ -2,11 +2,17 @@
 function edit(id) {
     var myWindow = window.open("./include/factory/factory_showedit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
+<<<<<<< HEAD
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
   });
 })
+=======
+function qrcode(id) {
+    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
+}
+>>>>>>> parent of 905ad52... add delete confirm modal
 </script>   
     <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -74,6 +80,7 @@ $(document).ready(function(){
                       }elseif($row['status'] == 0){?>
                           <td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
                           <?php if(!is_null($row['idfarmer_send'])){ ?>
+<<<<<<< HEAD
                                 <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
@@ -104,11 +111,21 @@ $(document).ready(function(){
                       ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <?php
                       }
+=======
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
+                          <?php 
+                          }elseif(!is_null($row['idfactory_send'])) { ?>
+                                <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
+                    <?php
+                        }
+                    }
+>>>>>>> parent of 905ad52... add delete confirm modal
                     ?>
                 </tr>
                 <?php $n = $n+1; } ?>
              </tbody>
             </table>
+<<<<<<< HEAD
     <?php
       include('./include/deleteconfirm.php');
     ?>
@@ -140,6 +157,8 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
+=======
+>>>>>>> parent of 905ad52... add delete confirm modal
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
