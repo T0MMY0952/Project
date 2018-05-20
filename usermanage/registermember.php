@@ -31,7 +31,7 @@
 			move_uploaded_file($_FILES['peoplepic']['tmp_name'], $target1);
 				if ($type == "factory") {
 					//--factory regis
-					$insertuser = $con->query("INSERT INTO user_account (iduser_account,email,pass,type,lastupdate) VALUES ('','$email','$password','factory','')");
+					$insertuser = $con->query("INSERT INTO user_account (iduser_account,email,pass,type) VALUES ('','$email','$password','factory')");
 					$last_id = mysqli_insert_id($con);
 					$find_id = $con->query("SELECT idfactory_place FROM factory_staff WHERE iduser_account = '".$_SESSION['iduser_account']."'");
 					$get_id = $find_id->fetch_assoc();
@@ -40,7 +40,7 @@
 				}
 				if ($type == "seller") {
 					//--seller regis
-					$insertuser = $con->query("INSERT INTO user_account (iduser_account,email,pass,type,lastupdate) VALUES ('','$email','$password','seller','')");
+					$insertuser = $con->query("INSERT INTO user_account (iduser_account,email,pass,type) VALUES ('','$email','$password','seller')");
 					$last_id = mysqli_insert_id($con);
 					$find_id = $con->query("SELECT idseller_place FROM seller_staff WHERE iduser_account = '".$_SESSION['iduser_account']."'");
 					$get_id = $find_id->fetch_assoc();
