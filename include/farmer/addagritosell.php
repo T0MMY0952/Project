@@ -16,7 +16,7 @@ $ap_price = $_POST['apr_price'];
 
 
 
-if(empty($ap_name) || empty($ap_collectdate)  || empty($ap_amount) || empty($ap_unit) || empty($ap_expdate) ){
+if(empty($ap_name) || empty($ap_collectdate)  || empty($ap_amount) || empty($ap_unit) || empty($get_expdate) ){
 	echo '<script type="text/javascript" >
 				alert("กรอกข้อมูลไม่ครบ");
 				window.location.href = "javascript:history.back()";
