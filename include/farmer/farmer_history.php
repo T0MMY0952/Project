@@ -2,7 +2,6 @@
 function edit(idapr) {
     var myWindow = window.open("./include/farmer/farmer_updateagri.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
-<<<<<<< HEAD
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
@@ -12,8 +11,6 @@ $('#comment').on('show.bs.modal', function(e) {
     var bookId = $(e.relatedTarget).data('book-id');
     $(e.currentTarget).find('input[name="bookId"]').val(bookId);
 });
-=======
->>>>>>> parent of 905ad52... add delete confirm modal
 </script>
 <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -77,18 +74,9 @@ $('#comment').on('show.bs.modal', function(e) {
                     <td><div align="center"><?php echo $date->format('d/m/Y H:i:s'); ?></div></td>
                     <?php
                     if($row['status'] == 0){?>
-<<<<<<< HEAD
                     	<td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
-                        $num = $n;
-                        $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
-                        echo $link;
-                        echo $num; 
-                      ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
-=======
-                    	<td><div align="center"><?php echo 'รออนุมัติ'; ?></div></td>
-                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/farmer/deleteagri.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
->>>>>>> parent of 905ad52... add delete confirm modal
+                    	<td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="include/farmer/deleteagri.php?id=<?php echo $row['idshipment'];?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
+
                     <?php
             		    }elseif ($row['status'] == 1) {?>
             			   <td><div align="center"><?php echo '<img widht="24px" height="24px" src="images/Complete.png">'; ?></div></td>
@@ -109,11 +97,6 @@ $('#comment').on('show.bs.modal', function(e) {
                 <?php $n = $n+1; } ?>
               </tbody>
             </table>
-<<<<<<< HEAD
-    <?php
-      include('./include/deleteconfirm.php');
-    ?>
-
 <script type="text/javascript">
 $(document).on("click", ".open-my_modal", function () {
      var myBookId = $(this).data('id');
@@ -142,8 +125,7 @@ $(document).on("click", ".open-my_modal", function () {
     </div>
   </div>
 </div>
-=======
->>>>>>> parent of 905ad52... add delete confirm modal
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

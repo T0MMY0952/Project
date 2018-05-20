@@ -2,17 +2,11 @@
 function edit(id) {
     var myWindow = window.open("./include/factory/factory_showedit.php?idshipment="+id, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
-<<<<<<< HEAD
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
   });
 })
-=======
-function qrcode(id) {
-    var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=factory", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=900,height=900");  
-}
->>>>>>> parent of 905ad52... add delete confirm modal
 </script>   
     <div class="container-fluid">
      <!-- Example DataTables Card-->
@@ -80,7 +74,6 @@ function qrcode(id) {
                       }elseif($row['status'] == 0){?>
                           <td><div align="center"><?php echo '<img widht="30px" height="30px" src="images/Wait.png">'; ?></div></td>
                           <?php if(!is_null($row['idfarmer_send'])){ ?>
-<<<<<<< HEAD
                                 <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" 
                                   href="#delete
                                   <?php 
@@ -103,15 +96,9 @@ function qrcode(id) {
                           }
                       }elseif ($row['status'] == 2){?>
                            <td><div align="center"><a data-toggle="modal" data-id="<?php echo $row['comment']; ?>"class="open-my_modal" href="#my_modal" ><?php echo '<img widht="24px" height="24px" src="images/cross.png">'; ?></a></div></td>
-                           <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="#delete<?php 
-                            $num = $n;
-                            $link = 'include/farmer/deleteagri.php?id='.$row['idshipment'];
-                            echo $link;
-                            echo $num; 
-                      ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
+                           <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" ><img src="images/EditList.png" widht="24px" height="24px"></a>&nbsp;<b>/</b>&nbsp;<a class="delete" href="include/farmer/deleteagri.php?id=<?php echo $row['idshipment']; ?>"><img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <?php
                       }
-=======
                                 <td><div align="center"><a onclick="edit(<?php echo $row['idshipment']; ?>)" href="" >แก้ไข</a>/<a href="include/factory/deleteproduct.php?id=<?php echo $row['idshipment']; ?>">ลบข้อมูล</a></div></td>
                           <?php 
                           }elseif(!is_null($row['idfactory_send'])) { ?>
@@ -119,16 +106,11 @@ function qrcode(id) {
                     <?php
                         }
                     }
->>>>>>> parent of 905ad52... add delete confirm modal
                     ?>
                 </tr>
                 <?php $n = $n+1; } ?>
              </tbody>
             </table>
-<<<<<<< HEAD
-    <?php
-      include('./include/deleteconfirm.php');
-    ?>
 <script type="text/javascript">
  $(document).on("click", ".open-my_modal", function () {
      var myBookId = $(this).data('id');

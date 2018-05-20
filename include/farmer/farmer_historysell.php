@@ -2,17 +2,16 @@
 function editagritosell(idapr) {
     var myWindow = window.open("./include/farmer/farmer_updateagritosell.php?idapr="+idapr, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=700,height=750");  
 }
-<<<<<<< HEAD
+
 $(document).ready(function(){
   $(".delete").click(function(){
     $("#delete").modal("show");
   });
 })
-=======
+
 function qrcode(id) {
     var myWindow = window.open("./include/show_QR.php?idshipment="+id+"&type=farmer", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=500");  
 }
->>>>>>> parent of 905ad52... add delete confirm modal
 </script>
 <style type="text/css">
   .btn-link{
@@ -68,17 +67,11 @@ function qrcode(id) {
                     <td><div align="center"><?php echo $row['ap_garden']; ?></div></td>
                     <td><div align="center"><?php echo $row['ap_amount']; echo '&nbsp'; echo $row['ap_unit']; ?></div></td>
                     <td><div align="center"><?php echo $row['ap_price']; echo '&nbsp บาท'; ?></div></td>
-<<<<<<< HEAD
+
                     <td><div align="center">
                     <a onclick="editagritosell(<?php echo $row['idagriculture_product']; ?>)" href="" >
                     <img src="images/EditList.png" widht="24px" height="24px"></a><b>&nbsp;/&nbsp;</b>
-                    <a class="delete" href="#delete
-                    <?php 
-                        $num = $n;
-                        $link = 'include/farmer/deleteagritosell.php?id='.$row['idagriculture_product'];
-                        echo $link;
-                        echo $num; 
-                    ?>"> 
+                    <a class="delete" href="include/farmer/deleteagritosell.php?id=<?php echo $row['idagriculture_product']; ?>" > 
                     <img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
                     <td><div align="center">
                     <form action="./include/show_QR.php" method="post" target="_blank">
@@ -87,10 +80,6 @@ function qrcode(id) {
                       <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
                     </form>
                     </div></td>
-=======
-                    <td><div align="center"><a onclick="editagritosell(<?php echo $row['idagriculture_product']; ?>)" href="" ><img src="images/edit1-icon.png"></a><b>/</b><a href="include/farmer/deleteagritosell.php?id=<?php echo $row['idagriculture_product']; ?>"> <img width="32px" height="32px" src="images/delete1-icon.png"></a></div></td>
-                    <td><div align="center"><a onclick="qrcode(<?php echo $row['idagriculture_product']; ?>)" href="" ><img src="images/print-icon.png"></a></div></td>
->>>>>>> parent of 905ad52... add delete confirm modal
                 </tr>
                 <?php $n = $n+1; } ?>
               </tbody>
