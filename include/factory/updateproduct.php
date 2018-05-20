@@ -1,17 +1,19 @@
 <meta charset="utf-8">
 <?php
 require_once("../../connect/connect.php");
+date_default_timezone_set("Asia/Bangkok");
 $id = $_GET['idshow'];
 $p_name = $_POST['name'];
 $p_amount = $_POST['amount'];
 $p_unit = $_POST['unit'];
 $p_process = $_POST['process'];
-$mfd = $_POST['mfddate'];
-$p_mfd = date('Y-m-d',strtotime($mfd)); 
+$mfd = strtr($_POST['mfddate'], '/', '-');
+$p_mfd = date('Y-m-d',strtotime($mfd));
 $exp = date_modify(date_create($p_mfd) ,'+'.$_POST['expdate'].'day' );
 $p_exp = $exp->format('Y-m-d');
 $p_exportdate = date('Y-m-d H:i:s'); 
 $idsendto = $_POST['idrecieve'];
+
 
 if(empty($p_name) || empty($p_amount) || empty($p_unit) || empty($p_process) || empty($mfd) || empty($exp)  || empty($idsendto)){
 	echo '<script type="text/javascript" >
