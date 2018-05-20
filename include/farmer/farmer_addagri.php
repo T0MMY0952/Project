@@ -22,7 +22,7 @@ $(function() {
            <form method="post" action="./include/farmer/addagri.php">
             <div class="form-group col-md-8 ">
                 <label ><a style="color: red;">*</a>ชื่อผลผลิต</label>
-                <input class="form-control" name="ap_name" type="text"  autocomplete="off" placeholder="ชื่อผลผลิต" >
+                <input class="form-control" name="ap_name" type="text"  autocomplete="on" placeholder="ชื่อผลผลิต" >
                 <div class="result"></div>
             </div>
             <div class="form-group col-md-5">
