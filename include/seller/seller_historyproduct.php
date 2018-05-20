@@ -76,7 +76,7 @@ function qrcode(id) {
                         <INPUT TYPE="hidden" NAME="product" VALUE="<?php echo $getproduct['p_name']; ?>">
                         <INPUT TYPE="hidden" NAME="sender" VALUE="<?php echo $getfac['factoryname']; ?>">
                         <INPUT TYPE="hidden" NAME="type" VALUE="seller">
-                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="icon/Print.png" widht="34px" height="34px"></button>
                         </form></a></div></td>
                     <?php 
 
@@ -105,7 +105,7 @@ function qrcode(id) {
                         <INPUT TYPE="hidden" NAME="product" VALUE="<?php echo $getproduct['ap_name']; ?>">
                         <INPUT TYPE="hidden" NAME="sender" VALUE="<?php echo $getfac['farmname']; ?>">
                         <INPUT TYPE="hidden" NAME="type" VALUE="seller">
-                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                        <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="icon/Print.png" widht="34px" height="34px"></button>
                         </form></a></div></td>
                     <?php
                       }

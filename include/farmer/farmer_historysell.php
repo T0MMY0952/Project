@@ -70,14 +70,14 @@ function qrcode(id) {
 
                     <td><div align="center">
                     <a onclick="editagritosell(<?php echo $row['idagriculture_product']; ?>)" href="" >
-                    <img src="images/EditList.png" widht="24px" height="24px"></a><b>&nbsp;/&nbsp;</b>
+                    <img src="icon/EditList.png" widht="24px" height="24px"></a><b>&nbsp;/&nbsp;</b>
                     <a class="delete" href="include/farmer/deleteagritosell.php?id=<?php echo $row['idagriculture_product']; ?>" > 
-                    <img src="images/Delete.png" widht="24px" height="24px"></a></div></td>
+                    <img src="icon/Delete.png" widht="24px" height="24px"></a></div></td>
                     <td><div align="center">
                     <form action="./include/show_QR.php" method="post" target="_blank">
                     <INPUT TYPE="hidden" NAME="data" VALUE="<?= base64_encode(serialize($row)); ?>">
                     <INPUT TYPE="hidden" NAME="type" VALUE="farmer">
-                      <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="images/Print.png" widht="34px" height="34px"></button>
+                      <button type="submit" name="your_name" value="your_value" class="btn-link"><img src="icon/Print.png" widht="34px" height="34px"></button>
                     </form>
                     </div></td>
                 </tr>
