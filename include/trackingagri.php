@@ -31,7 +31,6 @@
         <h3 align="center">ตรวจสอบย้อนกลับ</h3>
       </ol>
 <?php
-  $array = unserialize($data);
   require_once("../connect/connect.php");
 ?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
