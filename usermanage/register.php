@@ -15,8 +15,7 @@
 	$placepic = $_FILES['placepic']['name'];
 
 	
-	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress) || !is_numeric($type) || 
-		empty($peoplepic) ){
+	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress) || !is_numeric($type) || empty($peoplepic) || empty($placepic) ){
 		//--กรอกข้อมูลไม่ครบ
 		echo '<script type="text/javascript" >
 				alert("กรอกข้อมูลไม่ครบ");

@@ -123,7 +123,7 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
           </div> 
 			     
           <div class="form-group col-md-8">
-             <label for="exampleInputAddress">รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
+             <label for="exampleInputAddress"><a style="color:red;">*</a>รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
                <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,2)" >
                <div class="wrapper">
                 <p><p><?php echo "<img src='images/".$result["{$sub}pic"]."'" ?> class="img-responsive"  id="output2"/><p>

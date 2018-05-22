@@ -91,7 +91,7 @@
           </div> 
 			     
           <div class="form-group col-md-8">
-             <label >รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
+             <label ><a style="color:red;">*</a>รูปภาพสวน/ฟาร์ม/โรงงาน/บริษัท</label>
                <input name="placepic"  class="form-control" type="file" accept="image/*" onchange="loadFile(this,2)"">
                <div class="wrapper">
                 <p><p><img class="img-responsive" id="output2"/><p>
