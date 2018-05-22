@@ -62,7 +62,7 @@
         for ($i = 2 ; $i <=  $gettrack['count']; $i++) {
 ?>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="<?php echo "#profile".$i; ?>" role="tab" aria-controls="profile-tap" aria-selected="false">โรงงาน</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="<?php echo "#profile".$i; ?>" role="tab" aria-controls="profile-tap" aria-selected="false">โรงงาน<?php echo $i-1; ?></a>
   </li>
 <?php
       }
