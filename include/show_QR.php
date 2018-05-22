@@ -49,13 +49,13 @@
 function selectqrcode() {
     var x = document.getElementById("size").value;
 	    if(x == 90){
-	    var qrcode = 30;
-		}
-		if(x == 130){
 	    var qrcode = 25;
 		}
-		if(x == 175){
+		if(x == 130){
 	    var qrcode = 16;
+		}
+		if(x == 175){
+	    var qrcode = 9;
 		}
     	document.getElementById("showqr").innerHTML = "จำนวนที่มากที่สุด : "+ qrcode+ " ชิ้น";
     	document.getElementById("qrcode").setAttribute("max", qrcode); 
@@ -165,7 +165,7 @@ $type = $_POST['type'];
 
 				// create text QR code 
 		    if($type == "farmer"){
-		      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/trackingagri.php?id=".$array['idagriculture_product']);
+		      $qr->text("http://10.34.42.208/sp_60_TrackingForAg/include/trackingagri.php?id=".$array['idagriculture_product']);
 		      $findplace = $con->query("SELECT * 
 		                                FROM farm_place AS fp 
 		                                LEFT JOIN farmer AS f ON fp.idfarm_place = f.idfarm_place  
@@ -176,7 +176,7 @@ $type = $_POST['type'];
 		      $exp = $exp->format('d/m/Y');
 
 			}elseif($type == "seller"){
-		      $qr->text("158.108.207.4/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
+		      $qr->text("http://10.34.42.208/sp_60_TrackingForAg/include/tracking.php?idshipment=".$array['idshipment']."&type=".$type);
 		      $findplace = $con->query("SELECT * 
 		                                FROM seller_place  
 		                                WHERE idseller_place = '".$array['idseller_recieve']."'") or die (mysqli_error($con));
@@ -198,18 +198,25 @@ $type = $_POST['type'];
 			    $qrcode = $_POST['qrcode'];
 				$qr->size($size);
 				$img = $qr->qrCode();
+				if($size == 90){
+					$cardsize = 120;
+				}elseif($size == 130){
+					$cardsize = 135;
+				}elseif($size == 175){
+					$cardsize = 180;
+				}
 			?>
 			  
 			 <div class="row" style="margin-left:5px;">
 			 <?php
 				for($i = 1 ; $i <= $qrcode ; $i++){
 			 ?>
-		      	<div class="card" style="border-width: 2px;">
+		      	<div class="card" style="border-width: 2px; width: <?php echo $cardsize; ?>px;">
 		      	<a class="text-center"><?php echo $place;?></a>
 		      <?php
 			  echo '<img src="data:image/png;base64,' . base64_encode($img) . '" width="'.$size.'" height="'.$size.'" style="margin:0 auto;">';
 			  ?>
-		       <a class="text-center">วันหมดอายุของสินค้า</a>
+		       <a class="text-center">วันหมดอายุ</a>
 		       <a class="text-center"><?php echo $exp;?></a>
 		       </div>
 		       <?php
