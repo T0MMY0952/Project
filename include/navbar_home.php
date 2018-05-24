@@ -252,7 +252,7 @@ $(document).ready(function(){
           
            echo '
            <li class="nav-item" data-toggle="tooltip" data-placement="right">
-			<button type="button" class="btn btn-warning btn-block"><img widht="24px" height="24px"  src="icon/king.png">&nbspโรงงาน</button></li>
+			<button type="button" class="btn btn-warning btn-block"><img widht="24px" height="24px" src="icon/king.png">&nbspโรงงาน</button></li>
            <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
@@ -372,7 +372,7 @@ $(document).ready(function(){
           
            echo '
            <li class="nav-item" data-toggle="tooltip" data-placement="right">
-			<button type="button" class="btn btn-warning btn-block"><img widht="24px" height="24px"  src="icon/king.jpg">โรงงาน</button></li>
+			<button type="button" class="btn btn-warning btn-block">โรงงาน</button></li>
            <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
