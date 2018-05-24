@@ -19,17 +19,21 @@
     margin-left: 10px;
     margin-right:  10px;
 }
+body {
+    background-image: url("../icon/bg.jpg");
+    background-color: #cccccc;
+}
  </style>
 </head>
 
 
-<body class="bg-dark" id="page-top">
-  <div class="container">
-  <div class="content-wrapper">
-    <div class="container-fluid">
+<body id="page-top" >
+  <div class="container" >
+  <div class="content-wrapper" style="border:2px solid #33cc33; border-radius: 25px;">
+    <div class="container-fluid" >
       <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <h3 align="center">ตรวจสอบย้อนกลับ</h3>
+      <ol class="breadcrumb" style="background-color: #33cc33;">
+        <h3 align="center" style="color:white;"><img widht="50px" height="50px"  src="../icon/trace.png">&nbspตรวจสอบย้อนกลับผลผลิตทางการเกษตร</h3>
       </ol>
 <?php
   $id = $_GET['idshipment'];
@@ -55,14 +59,14 @@
 ?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home-tab" aria-selected="true">เกษตรกร</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home-tab" aria-selected="true"><img widht="24px" height="24px"  src="../icon/farmer.png">เกษตรกร</a>
   </li>
 <?php
   if ($n >= 2){
         for ($i = 2 ; $i <=  $gettrack['count']; $i++) {
 ?>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="<?php echo "#profile".$i; ?>" role="tab" aria-controls="profile-tap" aria-selected="false">โรงงาน<?php echo $i-1; ?></a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="<?php echo "#profile".$i; ?>" role="tab" aria-controls="profile-tap" aria-selected="false"><img widht="24px" height="24px"  src="../icon/factory.png">โรงงาน<?php echo $i-1; ?></a>
   </li>
 <?php
       }
@@ -72,7 +76,7 @@
 	if ($type != "factory"){
 ?>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact-tab" aria-selected="false">ผู้จัดจำหน่าย</a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact-tab" aria-selected="false"><img widht="24px" height="24px"  src="../icon/seller.png">ผู้จัดจำหน่าย</a>
   </li>
 <?php
 	}
