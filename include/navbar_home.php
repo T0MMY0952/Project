@@ -31,7 +31,9 @@ $(document).ready(function(){
            $find = $con->query("SELECT farmername FROM farmer WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
            $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right">
+			<button type="button" class="btn btn-success btn-block">เกษตรกร</button></li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["farmername"];
@@ -120,7 +122,10 @@ $(document).ready(function(){
           $find = $con->query("SELECT seller_staffname FROM seller_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
           $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+           echo '
+           <li class="nav-item" data-toggle="tooltip" data-placement="right">
+			<button type="button" class="btn btn-primary btn-block"><img widht="24px" height="24px"  src="icon/king.png">&nbspผู้จัดจำหน่าย</button></li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"></i><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["seller_staffname"];
@@ -197,7 +202,10 @@ $(document).ready(function(){
           $find = $con->query("SELECT seller_staffname FROM seller_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
           $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+           echo '
+           <li class="nav-item" data-toggle="tooltip" data-placement="right">
+			<button type="button" class="btn btn-primary btn-block">ผู้จัดจำหน่าย</button></li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["seller_staffname"];
@@ -242,7 +250,10 @@ $(document).ready(function(){
             $find = $con->query("SELECT factory_staffname FROM factory_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
             $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+           echo '
+           <li class="nav-item" data-toggle="tooltip" data-placement="right">
+			<button type="button" class="btn btn-warning btn-block"><img widht="24px" height="24px"  src="icon/king.png">&nbspโรงงาน</button></li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["factory_staffname"];
@@ -359,7 +370,10 @@ $(document).ready(function(){
             $find = $con->query("SELECT factory_staffname FROM factory_staff WHERE iduser_account = '".$_SESSION['iduser_account']."' ");
             $get = $find->fetch_assoc();
           
-           echo '<li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
+           echo '
+           <li class="nav-item" data-toggle="tooltip" data-placement="right">
+			<button type="button" class="btn btn-warning btn-block"><img widht="24px" height="24px"  src="icon/king.jpg">โรงงาน</button></li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right"><a class="nav-link">
             <img widht="24px" height="24px"  src="icon/User.png"><span class="nav-link-text">&nbspสวัสดีคุณ';
            echo '&nbsp';
            echo $get["factory_staffname"];
