@@ -44,11 +44,7 @@
 				$target2 = "../images/".$placepic;
 				move_uploaded_file($_FILES['peoplepic']['tmp_name'], $target1);
 				move_uploaded_file($_FILES['placepic']['tmp_name'], $target2);
-				/*if (move_uploaded_file($_FILES['peoplepic']['tmp_name'], $target) && move_uploaded_file($_FILES['placepic']['tmp_name'], $target2)) {
-  					echo  "Image uploaded successfully";
-  				}else{
-  					echo "Failed to upload image";
-  				}*/
+				
 				if ($type == 1) {
 					//--farmer regis
 					//--Check farmname is duplicate

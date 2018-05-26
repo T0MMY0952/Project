@@ -16,7 +16,7 @@
 	$type = $_SESSION['type'];
 	$id = $_SESSION['iduser_account'];
 
-	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress) || empty($placepic) || empty($peoplepic)){
+	if (empty($email) || empty($password) || empty($repassword) || empty($name) || empty($surname)  || empty($businessname) || empty($businessaddress) ){
 		//--กรอกข้อมูลไม่ครบ
 		echo '<script type="text/javascript" >
 				alert("กรอกข้อมูลไม่ครบ");
@@ -53,18 +53,11 @@
 					if(!empty($peoplepic)){
 						$findimage = $con->query("SELECT farmerpic FROM farmer WHERE iduser_account = '".$id."' ");
 						$getimage = $findimage->fetch_assoc();
-						if($getimage['farmerpic'] != ''){
-							if(!unlink($_SERVER['DOCUMENT_ROOT'] ."/sp_60_TrackingForAg/images/".$getimage["farmerpic"]."")){
-								echo "Delete Picture Fail";
-							}
-						}
+						
 
 						$target1 = "../images/".$peoplepic;
-						if(move_uploaded_file($_FILES['peoplepic']['tmp_name'], $target1)){
-							echo "Success";
-						}else{
-							echo "Fail";
-						}
+						move_uploaded_file($_FILES['peoplepic']['tmp_name'], $target1);
+							
 						$pic1 = $con->query("UPDATE farmer SET farmerpic = '$peoplepic' WHERE iduser_account = '".$id."' ") ;
 					}
 					if(!empty($placepic)){
@@ -77,11 +70,8 @@
 						}
 
 						$target2 = "../images/".$placepic;
-						if(move_uploaded_file($_FILES['placepic']['tmp_name'], $target2)){
-							echo "Success";
-						}else{
-							echo "Fail";
-						}
+						move_uploaded_file($_FILES['placepic']['tmp_name'], $target2);
+							
 						$pic2 = $con->query("UPDATE farm_place SET farmpic = '$placepic' WHERE idfarm_place = '".$resultid['idfarm_place']."' ") ;
 					}
 					echo '<script type="text/javascript" >
