@@ -40,13 +40,21 @@ $result= mysqli_fetch_array($query,MYSQLI_ASSOC);
   function loadFile(file,num) {
     var output = document.getElementById('output'+num);
     var FileSize = file.files[0].size / 1024 / 1024; // in MB
-        if (FileSize > 2) {
-            alert('ไฟล์มีขนาดใหญ่กว่า 2 MB กรุณาเลือกไฟล์ใหม่');
-            window.URL.revokeObjectURL(output);
-            $(file).val('');
-        }else{
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
+    var GetFile =  file.files[0].name;
+    var FileName = GetFile.substring(0, GetFile.indexOf('.'));
+    
+      if( FileName.search(/[^a-zA-Z0-9]/) !==-1 ){
+        alert('กรุณาตั้งชื่อไฟล์ที่ไม่ใช่ภาษาไทย');
+        $(file).val('');
+      }else{
+          if (FileSize > 2) {
+              alert('ไฟล์มีขนาดใหญ่กว่า 2 MB กรุณาเลือกไฟล์ใหม่');
+              window.URL.revokeObjectURL(output);
+              $(file).val('');
+          }else{
+              output.src = URL.createObjectURL(event.target.files[0]);
+          }
+      }
   };
 </script>
   
